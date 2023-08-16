@@ -1,0 +1,95 @@
+/* GLOBAL */
+main {
+    font-family: 'Alegreya',Georgia,"Times New Roman",serif;
+}
+
+button {
+    background-color: #2dedb9;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 14px;
+    border: none;
+    padding: 10px 20px;
+    box-shadow: 2px 2px 7px 0px rgba(0,0,0,0.3);
+    transition: all 300ms ease 0ms;
+}
+
+button:hover {
+    background-color: #26cfa2;
+}
+
+/*NAVBAR*/
+.navbar {
+    background-color: #f6f6f6;
+    max-width: 100%;
+    display: flex;
+    overflow: hidden;
+}
+
+
+.logo_container {
+    display: flex;
+    max-width: fit-content;
+}
+
+.logo {
+    width: 25%;
+    height: auto;
+    margin-left: 20%;
+}
+    .logo:hover {
+        cursor: pointer;
+    }
+
+.navitems {
+    display: flex;
+    list-style-type: none;
+}
+
+.btn_navbar {
+    margin: 2rem;
+    float: inline-start;
+}
+    nav:hover {
+        cursor: pointer;
+    }
+
+.connect{
+    border: none;
+    
+}
+    .connect img {
+        width: 40px;
+    }
+
+/*BANNER*/
+.banner {
+    display: flex;
+    align-items: center;
+    background-image: linear-gradient(90deg,rgba(0,0,0,0.75) 0%,rgba(0,0,0,0.2) 100%), url(../uploads/jonction_landscape.png);
+    background-size: cover;
+    height: 40rem;
+    background-position: 0 80%;
+}
+
+.banner_txt {
+    margin: 0px 20rem 0px 20rem;
+    max-width: 40%;
+    font-size: 1.6em;
+    align-self: center;
+    color: #f6f6f6;
+}
+
+.banner_title {
+    max-width: 40%;
+    font-size: 3em;
+    align-self: center;
+    color: #f6f6f6;
+}
+
+.txt_bloc {
+    width: 80%;
+    max-width: 1080px;
+    margin: auto;
+    padding: 40px 0px;
+}

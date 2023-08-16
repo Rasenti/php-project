@@ -1,0 +1,9 @@
+MCD
+Arborescence des pages
+
+Petite recherche blog bootstrap pour voir si ça vaut le coup
+	Front en CSS pur
+	Back admin -> rechercher des templates HTML CSS sur le net
+
+Idées :
+	-Pour la connexion fare une icone random parmi plusieurs peuples
