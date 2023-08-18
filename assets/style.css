@@ -26,16 +26,15 @@ button:hover {
     overflow: hidden;
 }
 
-
 .logo_container {
     display: flex;
     max-width: fit-content;
+    justify-content: center;
 }
 
 .logo {
-    width: 25%;
-    height: auto;
-    margin-left: 20%;
+    width: 50%;
+    padding: 1rem;
 }
     .logo:hover {
         cursor: pointer;
@@ -44,6 +43,7 @@ button:hover {
 .navitems {
     display: flex;
     list-style-type: none;
+    margin: 0;
 }
 
 .btn_navbar {
@@ -53,6 +53,11 @@ button:hover {
     nav:hover {
         cursor: pointer;
     }
+
+.btn_navbar a {
+    color: #4f4e4e;
+    text-decoration: none;
+}
 
 .connect{
     border: none;
@@ -75,7 +80,7 @@ button:hover {
 .banner_txt {
     margin: 0px 20rem 0px 20rem;
     max-width: 40%;
-    font-size: 1.6em;
+    font-size: 1.4em;
     align-self: center;
     color: #f6f6f6;
 }
@@ -87,9 +92,47 @@ button:hover {
     color: #f6f6f6;
 }
 
+/*MAIN*/
 .txt_bloc {
     width: 80%;
     max-width: 1080px;
     margin: auto;
     padding: 40px 0px;
+}
+
+h2 {
+    text-align: center;
+}
+
+hr {
+    width: 10%;
+    margin: 1rem auto !important;
+    opacity: .5 !important;
+}
+
+/*FOOTER*/
+.footer {
+    background-color: #4f4e4e;
+    color: #f6f6f6;
+    font-family: 'Alegreya',Georgia,"Times New Roman",serif;
+}
+
+.footer_logo {
+    display: flex;
+    max-width: 100%;
+    padding: 1rem;
+}
+
+.footer_column {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.copy_tos {
+    display: flex;
+    justify-content: space-between;
 }

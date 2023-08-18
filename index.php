@@ -1,6 +1,5 @@
 <?php
 require_once 'layout/header.php';
-require_once 'layout/footer.php';
 $title = 'Accueil';
 ?>
 
@@ -57,3 +56,5 @@ $title = 'Accueil';
 
 </main>
 
+<?php
+require_once 'layout/footer.php';
