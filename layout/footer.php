@@ -4,14 +4,14 @@
 
             <div class="footer_column col-3">
 
-                    <a href="http://localhost:81/project/"><img class="footer_logo" src="/project/uploads/logo.svg" alt="Logo Jonction"></a>
+                    <a href="http://localhost:81/project/" class="d-flex justify-content-center"><img class="footer_logo" src="/project/uploads/logo.svg" alt="Logo Jonction"></a>
 
             </div>
 
             <div class="footer_column col-3">
 
                 <div class="et_pb_text_inner">
-                    <h2>Encyclopédie</h2>
+                    <h3>Encyclopédie</h3>
                 </div>
 
                 <div class="et_pb_text_inner">
@@ -25,7 +25,7 @@
             <div class="footer_column col-3">
 
                 <div class="et_pb_text_inner">
-                    <h2>Ressources</h2>
+                    <h3>Ressources</h3>
                 </div>
 
                 <div class="et_pb_text_inner">
@@ -39,7 +39,7 @@
             <div class="footer_column col-3">
 
                 <div class="et_pb_text_inner">
-                    <h2>Contact</h2>
+                    <h3>Contact</h3>
                 </div>
 
                 <div class="et_pb_text_inner">

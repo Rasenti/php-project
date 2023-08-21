@@ -42,17 +42,75 @@ $title = 'Accueil';
     </section>
 
     <section class="articles">
-        <div>
-            <article>
-                <div>
 
+        <h2>L'Encyclopédie</h2>
+        <hr>
+
+        <div class = "row justify-content-center">
+
+            <article class = "card col-3 m-2">
+                <div>
+                    <a href="">
+                        <img src="" alt="">
+                    </a>
                 </div>
                 <div>
-
+                    <h3></h3>
+                    <p></p>
                 </div>
             </article>
+
+            <article class = "card col-3 m-2">
+                <div>
+                    <a href="">
+                        <img src="" alt="">
+                    </a>
+                </div>
+                <div>
+                    <h3></h3>
+                    <p></p>
+                </div>
+            </article>
+
+            <article class = "card col-3 m-2">
+                <div>
+                    <a href="">
+                        <img src="" alt="">
+                    </a>
+                </div>
+                <div>
+                    <h3></h3>
+                    <p></p>
+                </div>
+            </article>
+
         </div>
+
     </section>
+
+    <div class="newsletter_banner">
+        <section class="newsletter">
+    
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3>Inscrivez-vous à notre Newsletter !</h3>
+                    <p>Notre but est de vous offrir la meilleure expérience de jeu possible, et pour cela nous ajoutons régulièrement du contenu. Donc n’hésitez pas à vous inscrire à la newsletter, pour ne rien rater des nouveautés dans Jonction !</p>
+                </div>
+    
+                <div class="col-lg-6">
+                    <form action="" method="POST">
+                        <input class="form-control mb-3" type="text" name="lastName" id="lastName" placeholder="Nom"/>
+                        <input class="form-control mb-3" type="text"        name="firstName" id="firstName" placeholder="Prénom"/>
+                        <input class="form-control mb-3" type="email" name="email" id="email" placeholder="E-mail*"/>
+                        
+                        <button class="mb-3" type="submit">S'inscrire</button>
+    
+                    </form>
+                </div>
+            </div>
+    
+        </section>
+    </div>
 
 </main>
 
