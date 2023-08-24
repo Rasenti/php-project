@@ -1,17 +1,17 @@
 <?php
 try {
     //DSN = Data Source Name
-    $pdo = new PDO("mysql:host=host.docker.internal;port=3306;dbname=...;charset=uft8mb4, 'username', 'password'");
+    $pdo = new PDO("mysql:host=localhost;port=3306;dbname=php_project;charset=uft8mb4", 'root', '');
 } catch (PDOException $ex){
     echo "La connexion à la BDD a échoué";
 }
 
 var_dump($pdo);
 
-$stmt = $pdo->query("SELECT * FROM products");
+$stmt = $pdo->query("SELECT * FROM users");
 
-$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
-var_dump($products);
+$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+var_dump($users);
 
 
 
