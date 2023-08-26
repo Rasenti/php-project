@@ -23,7 +23,7 @@
                 <li class="btn_navbar"><a href="/project/admin.php">Administration</a></li>
             </ul>
             <div class="button_container col-lg-2 col-6 m-0">
-                <a href="/project/connection.php"><button class="connect">Connexion</button></a>
+                <a href="/project/login.php"><button class="connect">Connexion</button></a>
             </div>
         </div>
 
