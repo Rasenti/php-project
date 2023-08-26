@@ -60,11 +60,16 @@ button:hover {
 }
 
 .connect{
-    border: none;
-    
+    border: none;   
 }
-    .connect img {
-        width: 40px;
+
+.button_container {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-end;
+}
+    .button_container p {
+        padding: 1rem;
     }
 
 /*BANNER*/
