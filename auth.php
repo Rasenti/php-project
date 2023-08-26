@@ -13,6 +13,16 @@ if (empty($_POST['email']) || empty($_POST['password'])) {
 ] = $_POST;
 // var_dump($_POST);
 
+foreach ($usersData as $el){
+    if ($el['email'] === $email && $el['password'] === $password) {
+        echo $el['email'];
+        exit;
+    } 
+};
+
+Utils::redirect('login.php?error=' . ErrorCode::INVALID_CREDENTIALS);
+
+/*
 // Authentification
 if ($email !== "test@gmail.com" || $password !== "test") {
   Utils::redirect('login.php?error=' . ErrorCode::INVALID_CREDENTIALS);
@@ -23,3 +33,4 @@ if ($email !== "test@gmail.com" || $password !== "test") {
 session_start();
 $_SESSION['email'] = 'test@gmail.com';
 Utils::redirect('login.php');
+*/
