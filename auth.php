@@ -18,6 +18,7 @@ foreach ($usersData as $el){
         session_start();
         $_SESSION['email'] = $email;
         $_SESSION['pseudo'] = $el['pseudo'];
+        $_SESSION['admin'] = $el['admin'];
         Utils::redirect('admin.php');
     } 
 };

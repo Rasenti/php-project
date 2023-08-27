@@ -21,7 +21,10 @@
             <ul class="navitems d-flex col-lg-8">
                 <li class="btn_navbar"><a href="/project/index.php">Accueil</a></li>
                 <li class="btn_navbar"><a href="/project/encyclopedie.php">Encyclopédie</a></li>
-                <li class="btn_navbar"><a href="/project/admin.php">Administration</a></li>
+                <?php if (isset($_SESSION['pseudo'])) { ?>
+                    <li class="btn_navbar"><a href="/project/admin.php">Administration</a></li>
+                <?php } ?>
+                
             </ul>
             <div class="button_container col-lg-2 col-6 mr-2">
                 <?php if (isset($_SESSION['pseudo'])) { ?>
