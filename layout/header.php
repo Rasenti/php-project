@@ -15,13 +15,17 @@
     <header class="container-fluid p-0">
 
         <div class="navbar p-0">
+            
             <div class="logo_container col-lg-2 col-6 m-0">
-                <img class="logo img-fluid" src="/project/uploads/logo.svg" alt="Logo">
+                <a href="/project/index.php">
+                    <img class="logo img-fluid" src="/project/uploads/logo.svg" alt="Logo">
+                </a>
             </div>
+            
             <ul class="navitems d-flex col-lg-8">
                 <li class="btn_navbar"><a href="/project/index.php">Accueil</a></li>
                 <li class="btn_navbar"><a href="/project/encyclopedie.php">Encyclopédie</a></li>
-                <?php if (isset($_SESSION['pseudo'])) { ?>
+                <?php if (isset ($_SESSION['admin']) && $_SESSION['admin'] === true) { ?>
                     <li class="btn_navbar"><a href="/project/admin.php">Administration</a></li>
                 <?php } ?>
                 

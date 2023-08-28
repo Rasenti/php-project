@@ -18,6 +18,11 @@ button:hover {
     background-color: #26cfa2;
 }
 
+.error {
+    color: red;
+    font-weight: 600;
+}
+
 /*NAVBAR*/
 .navbar {
     background-color: #f6f6f6;
@@ -27,6 +32,12 @@ button:hover {
 }
 
 .logo_container {
+    display: flex;
+    max-width: fit-content;
+    justify-content: center;
+}
+
+.logo_container a {
     display: flex;
     max-width: fit-content;
     justify-content: center;
@@ -70,6 +81,10 @@ button:hover {
 }
     .button_container p {
         padding: 1rem;
+    }
+
+    .button_container a {
+        margin-right: 20%;
     }
 
 /*BANNER*/

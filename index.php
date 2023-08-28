@@ -10,7 +10,7 @@ require_once 'layout/header.php';
             <p>Bienvenue dans l’univers fantastique de</p>
             <p class="banner_title">Jonction</p>
             <p>Plongez dans un monde médiéval fantastique riche en aventures épiques, en mystères et en magie. Jonction offre une expérience de jeu immersive où vous pouvez incarner des héros courageux, explorer des terres lointaines et affronter des créatures légendaires.</p>
-            <button>Encyclopédie</button>
+            <a href="/project/encyclopedie.php"><button>Encyclopédie</button></a>
         </div>
     </div>
 
