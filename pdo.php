@@ -2,7 +2,7 @@
 try {
     //DSN = Data Source Name
     //192.168.100.131
-    $pdo = new PDO("mysql:host=host.docker.internal;port=3306;dbname=php_project;charset=utt8mb4", 'root', '');
+    $pdo = new PDO("mysql:host=host.docker.internal;port=3306;dbname=bookshop;charset=utf8mb4", 'root', '');
 } catch (PDOException){
     echo "La connexion à la BDD a échoué";
     exit;

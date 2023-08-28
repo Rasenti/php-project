@@ -23,6 +23,15 @@ button:hover {
     font-weight: 600;
 }
 
+.main_sidebar {
+    display: flex;
+    flex-wrap: nowrap;
+    height: 100vh;
+    /* max-height: 100vh;
+    overflow-x: auto;
+    overflow-y: hidden; */
+}
+
 /*NAVBAR*/
 .navbar {
     background-color: #f6f6f6;
@@ -144,6 +153,16 @@ hr {
 .login {
     height: 80vh;
 }
+
+/*ADMIN*/
+.sidebar {
+    background-color: #353434;
+    width: 280px;
+}
+    .sidebar hr {
+        color: #f6f6f6;
+        width: 80%;
+    }
 
 /*FOOTER*/
 .footer {
