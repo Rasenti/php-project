@@ -7,7 +7,6 @@ if (isset($_POST['email'])) {
     
     try {
         $email = new Email($_POST['email']);
-        var_dump($email->addToMailList());
     } catch (InvalidArgumentException $ex) {
         $errorMessage = $ex->getMessage();
     }
@@ -21,7 +20,7 @@ if (isset($_POST['email'])) {
             <p>Bienvenue dans l’univers fantastique de</p>
             <p class="banner_title">Jonction</p>
             <p>Plongez dans un monde médiéval fantastique riche en aventures épiques, en mystères et en magie. Jonction offre une expérience de jeu immersive où vous pouvez incarner des héros courageux, explorer des terres lointaines et affronter des créatures légendaires.</p>
-            <a href="/project/encyclopedie.php"><button>Encyclopédie</button></a>
+            <a href="/encyclopedie.php"><button>Encyclopédie</button></a>
         </div>
     </div>
 
