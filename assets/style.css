@@ -164,6 +164,10 @@ hr {
         width: 80%;
     }
 
+.edit_form {
+    width: 60%;
+    margin: 5% 20%;
+}
 /*FOOTER*/
 .footer {
     background-color: #4f4e4e;
