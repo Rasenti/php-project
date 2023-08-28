@@ -6,4 +6,5 @@ Petite recherche blog bootstrap pour voir si ça vaut le coup
 	Back admin -> rechercher des templates HTML CSS sur le net
 
 Idées :
-	-Pour la connexion fare une icone random parmi plusieurs peuples
+	-Pour la connexion fare une icone random parmi plusieurs 
+	-Pour les exceptions d'email faire une classe abstraite "EmailsExceptions" avec des enfants pour chaque exception

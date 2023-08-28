@@ -1,6 +1,17 @@
 <?php
 $title = 'Accueil';
 require_once 'layout/header.php';
+
+if (isset($_POST['email'])) { 
+    require_once 'classes/Email.php';
+    
+    try {
+        $email = new Email($_POST['email']);
+        var_dump($email->addToMailList());
+    } catch (InvalidArgumentException $ex) {
+        $errorMessage = $ex->getMessage();
+    }
+  }
 ?>
 
 <main>
@@ -89,16 +100,22 @@ require_once 'layout/header.php';
     </section>
 
     <div class="newsletter_banner">
+
         <section class="newsletter">
     
             <div class="row">
+
                 <div class="col-lg-6">
+
                     <h3>Inscrivez-vous à notre Newsletter !</h3>
                     <p>Notre but est de vous offrir la meilleure expérience de jeu possible, et pour cela nous ajoutons régulièrement du contenu. Donc n’hésitez pas à vous inscrire à la newsletter, pour ne rien rater des nouveautés dans Jonction !</p>
+
                 </div>
     
                 <div class="col-lg-6">
+
                     <form action="" method="POST">
+
                         <input class="form-control mb-3" type="text" name="lastName" id="lastName" placeholder="Nom"/>
                         <input class="form-control mb-3" type="text"        name="firstName" id="firstName" placeholder="Prénom"/>
                         <input class="form-control mb-3" type="email" name="email" id="email" placeholder="E-mail*"/>
@@ -106,10 +123,13 @@ require_once 'layout/header.php';
                         <button class="mb-3" type="submit">S'inscrire</button>
     
                     </form>
+
                 </div>
+
             </div>
     
         </section>
+
     </div>
 
 </main>

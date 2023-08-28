@@ -6,7 +6,7 @@ require_once 'classes/ErrorCode.php'
 
 <main>
 
-    <div class="row justify-content-center">
+    <div class="login row justify-content-center align-items-center">
         <div class="col-lg-4 text-center m-3">
             <form action="auth.php" method="POST">
 

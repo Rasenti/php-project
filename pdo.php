@@ -1,19 +1,18 @@
 <?php
 try {
     //DSN = Data Source Name
-    $pdo = new PDO("mysql:host=localhost;port=3306;dbname=php_project;charset=uft8mb4", 'root', '');
-} catch (PDOException $ex){
+    //192.168.100.131
+    $pdo = new PDO("mysql:host=host.docker.internal;port=3306;dbname=php_project;charset=utt8mb4", 'root', '');
+} catch (PDOException){
     echo "La connexion à la BDD a échoué";
+    exit;
 }
-
 var_dump($pdo);
 
 $stmt = $pdo->query("SELECT * FROM users");
 
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 var_dump($users);
-
-
 
 //Comandes SQL pour créer et peupler une table
 

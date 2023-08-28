@@ -140,6 +140,11 @@ hr {
     color: #f6f6f6;
 }
 
+/*LOGIN*/
+.login {
+    height: 80vh;
+}
+
 /*FOOTER*/
 .footer {
     background-color: #4f4e4e;
