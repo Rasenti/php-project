@@ -1,18 +1,15 @@
 <?php
-try {
-    //DSN = Data Source Name
-    //192.168.100.131
-    $pdo = new PDO("mysql:host=host.docker.internal;port=3306;dbname=bookshop;charset=utf8mb4", 'root', '');
-} catch (PDOException){
-    echo "La connexion à la BDD a échoué";
-    exit;
-}
-var_dump($pdo);
+require_once __DIR__ . '/../classes/Utils.php';
+
+$pdo = Utils::newPDO();
 
 $stmt = $pdo->query("SELECT * FROM users");
+$users = Utils::selectFrom($pdo, 'users');
+$categories = Utils::selectFrom($pdo, 'categories');
+$pages = Utils::selectFrom($pdo, 'pages');
+$images = Utils::selectFrom($pdo, 'images');
 
-$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-var_dump($users);
+// var_dump($categories);
 
 //Comandes SQL pour créer et peupler une table
 

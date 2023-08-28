@@ -25,7 +25,7 @@
             <ul class="navitems d-flex col-lg-8">
                 <li class="btn_navbar"><a href="/project/index.php">Accueil</a></li>
                 <li class="btn_navbar"><a href="/project/encyclopedie.php">Encyclopédie</a></li>
-                <?php if (isset ($_SESSION['admin']) && $_SESSION['admin'] === true) { ?>
+                <?php if (isset ($_SESSION['admin']) && $_SESSION['admin'] === 1) { ?>
                     <li class="btn_navbar"><a href="/project/admin.php">Administration</a></li>
                 <?php } ?>
                 
