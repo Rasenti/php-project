@@ -11,14 +11,22 @@ class Utils
   public static function newPDO(): PDO
   {
       //DSN = Data Source Name
-      $pdo = new PDO("mysql:host=host.docker.internal;port=3306;dbname=php_project;charset=utf8mb4", 'root', '');
+      $pdo = new PDO(
+        "mysql:host=host.docker.internal;port=3306;dbname=php_project;charset=utf8mb4",
+        'root',
+        '', 
+        [
+          PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+          PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+        ]
+      );
       return $pdo;
   }
 
   public static function selectFrom(object $pdo, string $tableName): array
   {
     $stmt = $pdo->query("SELECT * FROM $tableName");
-    $table = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $table = $stmt->fetchAll();
     return $table;
   }
 

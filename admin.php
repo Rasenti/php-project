@@ -9,7 +9,9 @@ require_once 'layout/header.php';
     <div class="d-flex flex-column w-100">
 
         <div class="m-4">
-            <button>Créer</button>
+            <a href="/project/creator.php">
+                <button>Créer</button>
+            </a>
         </div>
 
         <div class="m-4 mt-0">
@@ -33,7 +35,7 @@ require_once 'layout/header.php';
                             <td><?php echo $el['title']?></td>
                             <td><?php echo $el['name']?></td>
                             <td><a href="/project/editor.php?id=<?php echo $el['id'] ?>"><img alt="Éditer" src="uploads/editpen.svg"/></a></td>
-                            <td><input type="image" id="delete" name="delete" alt="Supprimer" src="uploads/trashbin.svg" onclick="deleteArticle()" /></td>
+                            <td><input type="image" id="delete" name="delete" alt="Supprimer" src="uploads/trashbin.svg" onclick="deleteArticle($el['title'], $el['name'])" /></td>
                         </tr>
                     <?php } ?>
 
