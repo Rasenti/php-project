@@ -113,11 +113,14 @@ if (isset($_POST['email'])) {
     
                 <div class="col-lg-6">
 
-                    <form action="" method="POST">
+                    <form action="subscribe.php" method="POST">
 
                         <input class="form-control mb-3" type="text" name="lastName" id="lastName" placeholder="Nom"/>
                         <input class="form-control mb-3" type="text"        name="firstName" id="firstName" placeholder="Prénom"/>
+                        <input class="form-control mb-3" type="text"        name="pseudo" id="pseudo" placeholder="Pseudo"/>
+                        <input class="form-control mb-3" type="date"        name="dob" id="dob" placeholder="Date de naissance"/>
                         <input class="form-control mb-3" type="email" name="email" id="email" placeholder="E-mail*"/>
+                        <input class="form-control mb-3" type="text"        name="password" id="password" placeholder="Mot de passe"/>
                         
                         <button class="mb-3" type="submit">S'inscrire</button>
     

@@ -28,26 +28,14 @@ require_once 'layout/header.php';
 
                 <tbody>
 
-                    <tr>
-                    <td>Coucou</td>
-                    <td>Règles</td>
-                    <td>Peuples</td>
-                    <td>Capacités</td>
-                    </tr>
-
-                    <tr>
-                    <td>Salut</td>
-                    <td>Peuples</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    </tr>
-
-                    <tr>
-                    <td>Bye</td>
-                    <td>Capacités</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    </tr>
+                    <?php foreach ($articlesWithCategories as $el) { ?>
+                        <tr>
+                            <td><?php echo $el['title']?></td>
+                            <td><?php echo $el['name']?></td>
+                            <td><a href="/project/editor.php?id=<?php echo $el['id'] ?>"><img alt="Éditer" src="uploads/editpen.svg"/></a></td>
+                            <td><input type="image" id="delete" name="delete" alt="Supprimer" src="uploads/trashbin.svg" onclick="deleteArticle()" /></td>
+                        </tr>
+                    <?php } ?>
 
                 </tbody>
             </table>
