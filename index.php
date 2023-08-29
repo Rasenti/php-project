@@ -115,8 +115,8 @@ if (isset($_POST['email'])) {
 
                     <form action="subscribe.php" method="POST">
 
-                        <input class="form-control mb-3" type="text" name="lastName" id="lastName" placeholder="Nom"/>
-                        <input class="form-control mb-3" type="text"        name="firstName" id="firstName" placeholder="Prénom"/>
+                        <input class="form-control mb-3" type="text"        name="firstname" id="firstname" placeholder="Prénom"/>
+                        <input class="form-control mb-3" type="text" name="lastname" id="lastname" placeholder="Nom"/>
                         <input class="form-control mb-3" type="text"        name="pseudo" id="pseudo" placeholder="Pseudo"/>
                         <input class="form-control mb-3" type="date"        name="dob" id="dob" placeholder="Date de naissance"/>
                         <input class="form-control mb-3" type="email" name="email" id="email" placeholder="E-mail*"/>

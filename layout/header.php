@@ -17,7 +17,7 @@
         <div class="navbar p-0">
             
             <div class="logo_container col-lg-2 col-6 m-0">
-                <a href="/index.php">
+                <a href="/project/index.php">
                     <img class="logo img-fluid" src="/project/uploads/logo.svg" alt="Logo">
                 </a>
             </div>

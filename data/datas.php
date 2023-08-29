@@ -22,8 +22,3 @@ $stmtSelect = $pdo->query
     INNER JOIN categories 
     ON categories.id = categories_has_pages.categories_id");
 $articlesWithCategories = $stmtSelect->fetchAll(PDO::FETCH_ASSOC);
-
-function editArticle()
-{
-
-}

@@ -36,7 +36,7 @@ $article = $articlesWithCategories[$articleKey];
 
     <div class="d-flex flex-column w-100">
 
-        <form class="edit_form text-center" action="edit.php?id=<?php echo $articleKey ?>" method="POST">
+        <form class="edit_form text-center" action="edit.php?id=<?php echo $urlId ?>" method="POST">
 
             <input class="form-control mb-3" type="text" name="title" id="title" placeholder="Titre de l'article" value="<?php echo $article['title'] ?>"/>
             <input class="form-control mb-3" type="text" name="categorie" id="categorie" placeholder="Catégorie" value="<?php echo $article['name'] ?>"/>
