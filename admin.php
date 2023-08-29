@@ -1,6 +1,7 @@
 <?php
 $title = 'Administration';
 require_once 'layout/header.php';
+require_once 'functions/deleteArticle.php';
 ?>
 
 <main class="main_sidebar">
@@ -35,7 +36,7 @@ require_once 'layout/header.php';
                             <td><?php echo $el['title']?></td>
                             <td><?php echo $el['name']?></td>
                             <td><a href="/project/editor.php?id=<?php echo $el['id'] ?>"><img alt="Éditer" src="uploads/editpen.svg"/></a></td>
-                            <td><input type="image" id="delete" name="delete" alt="Supprimer" src="uploads/trashbin.svg" onclick="deleteArticle($el['title'], $el['name'])" /></td>
+                            <td><input type="image" id="delete" name="delete" alt="Supprimer" src="uploads/trashbin.svg" onclick="deleteArticle($el['title'])" /></td>
                         </tr>
                     <?php } ?>
 
