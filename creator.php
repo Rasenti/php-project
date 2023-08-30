@@ -11,7 +11,7 @@ require_once 'layout/header.php';
 
     <div class="d-flex flex-column w-100">
 
-        <form class="edit_form text-center" action="create.php" method="POST">
+        <form class="edit_form text-center" action="create.php" method="POST" enctype="multipart/form-data">
 
             <input class="form-control mb-3" type="text" name="title" id="title" placeholder="Titre de l'article"/>
             <input class="form-control mb-3" type="text" name="categorie" id="categorie" placeholder="Catégorie"/>

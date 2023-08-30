@@ -7,7 +7,15 @@ $categorie = $_POST['categorie'];
 $title = $_POST['title'];
 var_dump($image);
 
-//Je commence par enregistrer l'image en BDD pour pouvoir récupérer son id pour la suite du traitement
+//J'enregistre l'image uploadée sur mon serveur
+if (isset($_FILES['image'])) {
+    $file = $_FILES['image'];
+    $filename = $file['name'];
+    $destination = __DIR__ . "/uploads/" . $filename;
+    move_uploaded_file($file['tmp_name'], $destination);
+}
+
+//Ensuite j'enregistre l'image en BDD pour pouvoir récupérer son id pour la suite du traitement
 $stmt = $pdo->prepare("INSERT INTO images (name) VALUES (:name)");
 $stmt->execute(['name' => $image]);
 
