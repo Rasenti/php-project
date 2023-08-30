@@ -14,11 +14,22 @@ $categories = Utils::selectFrom($pdo, 'categories');
 $articles = Utils::selectFrom($pdo, 'pages');
 $images = Utils::selectFrom($pdo, 'images');
 
-$stmtSelect = $pdo->query
-    ("SELECT pages.*, categories.name 
+$stmt = $pdo->query
+    ("SELECT pages.*, categories.cat_name 
     FROM `pages`
     INNER JOIN categories_has_pages 
     ON pages.id = categories_has_pages.pages_id
     INNER JOIN categories 
     ON categories.id = categories_has_pages.categories_id");
-$articlesWithCategories = $stmtSelect->fetchAll(PDO::FETCH_ASSOC);
+$articlesWithCategories = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$stmt = $pdo->query
+    ("SELECT images.*, categories.*, categories_has_pages.categories_id, pages.*
+    FROM `pages`
+    INNER JOIN categories_has_pages 
+    ON pages.id = categories_has_pages.pages_id
+    INNER JOIN categories 
+    ON categories.id = categories_has_pages.categories_id
+    INNER JOIN images
+    ON images.id = pages.images_id");
+$fullArticle = $stmt->fetchAll(PDO::FETCH_ASSOC);

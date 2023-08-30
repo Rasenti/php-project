@@ -14,7 +14,7 @@ if (empty($_POST['email']) || empty($_POST['password'])) {
 // var_dump($_POST);
 
 foreach ($users as $el){
-    if ($el['email'] === $email && $el['password'] === $password) {
+    if ($el['email'] === $email && password_verify($password, $el['password'])) {
         session_start();
         $_SESSION['email'] = $email;
         $_SESSION['pseudo'] = $el['pseudo'];

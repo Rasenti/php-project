@@ -16,11 +16,11 @@ if (isset($_FILES['image'])) {
 }
 
 //Ensuite j'enregistre l'image en BDD pour pouvoir récupérer son id pour la suite du traitement
-$stmt = $pdo->prepare("INSERT INTO images (name) VALUES (:name)");
+$stmt = $pdo->prepare("INSERT INTO images (img_name) VALUES (:name)");
 $stmt->execute(['name' => $image]);
 
 //Je récupère l'id de l'image enregistrée en BDD
-$stmtImage = $pdo->prepare("SELECT id FROM images WHERE name LIKE :image");
+$stmtImage = $pdo->prepare("SELECT id FROM images WHERE img_name LIKE :image");
 $stmtImage->execute(['image' => $image]);
 $imageId = $stmtImage->fetch(PDO::FETCH_ASSOC);
 var_dump($imageId['id']);
@@ -38,7 +38,7 @@ $stmt->execute([
 ]);
 
 //Je récupère l'id de la catégorie et de la page nouvellement crée pour peupler la table categories_has_pages
-$stmtCategorie = $pdo->prepare("SELECT id FROM categories WHERE name LIKE :categorie");
+$stmtCategorie = $pdo->prepare("SELECT id FROM categories WHERE cat_name LIKE :categorie");
 $stmtCategorie->execute(['categorie' => $categorie]);
 $categorieId = $stmtCategorie->fetch(PDO::FETCH_ASSOC);
 var_dump($categorieId['id']);

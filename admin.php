@@ -33,7 +33,7 @@ require_once 'layout/header.php';
                     <?php foreach ($articlesWithCategories as $el) { ?>
                         <tr>
                             <td><?php echo $el['title']?></td>
-                            <td><?php echo $el['name']?></td>
+                            <td><?php echo $el['cat_name']?></td>
                             <td>
                                 <a href="editor.php?id=<?php echo $el['id'] ?>">
                                     <img alt="Éditer" src="uploads/editpen.svg"/>

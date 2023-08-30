@@ -26,7 +26,7 @@ button:hover {
 .main_sidebar {
     display: flex;
     flex-wrap: nowrap;
-    height: 100vh;
+    min-height: 80vh;
     /* max-height: 100vh;
     overflow-x: auto;
     overflow-y: hidden; */
@@ -154,7 +154,7 @@ hr {
     height: 80vh;
 }
 
-/*ADMIN*/
+/*ADMIN & WIKI*/
 .sidebar {
     background-color: #353434;
     width: 280px;
@@ -172,6 +172,10 @@ hr {
 th {
     background-color: #353434;
     color: #f6f6f6;
+}
+
+.card_img img {
+    max-width: 100%;
 }
 
 /*FOOTER*/

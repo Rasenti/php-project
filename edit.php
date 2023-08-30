@@ -29,14 +29,14 @@ $stmt->execute(['id' => $pageId]);
 $imageId = $stmt->fetch(PDO::FETCH_ASSOC);
 
 //Je mets à jour l'image sur la table images
-$stmt = $pdo->prepare("UPDATE images SET name=:name WHERE id=:imageId");
+$stmt = $pdo->prepare("UPDATE images SET img_name=:name WHERE id=:imageId");
 $stmt->execute([
     'name' => $filename,
     'imageId' => $imageId['images_id']
 ]);
 
 //Je récupère l'id de la catégorie qu'on édite
-$stmt = $pdo->prepare("SELECT id FROM categories WHERE name=:name");
+$stmt = $pdo->prepare("SELECT id FROM categories WHERE cat_name=:name");
 $stmt->execute(['name' => $categorie]);
 $categorieId = $stmt->fetch(PDO::FETCH_ASSOC);
 

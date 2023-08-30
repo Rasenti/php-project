@@ -39,7 +39,7 @@ $article = $articlesWithCategories[$articleKey];
         <form class="edit_form text-center" action="edit.php?id=<?php echo $urlId ?>" method="POST" enctype="multipart/form-data">
 
             <input class="form-control mb-3" type="text" name="title" id="title" placeholder="Titre de l'article" value="<?php echo $article['title'] ?>"/>
-            <input class="form-control mb-3" type="text" name="categorie" id="categorie" placeholder="Catégorie" value="<?php echo $article['name'] ?>"/>
+            <input class="form-control mb-3" type="text" name="categorie" id="categorie" placeholder="Catégorie" value="<?php echo $article['cat_name'] ?>"/>
             <input class="form-control mb-3" type="file" name="image" id="image" placeholder="Image de l'article"/>
             <textarea class="form-control mb-3" name="content" id="content" rows="12" placeholder="Contenu de l'article..."/><?php echo $article['content'] ?></textarea>
 

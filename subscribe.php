@@ -19,7 +19,7 @@ $stmt->execute([
     'pseudo' => $_POST['pseudo'],
     'dob' => $_POST['dob'],
     'email' => $_POST['email'],
-    'password' => $_POST['password']
+    'password' => ($_POST['password']), PASSWORD_DEFAULT
 ]);
 
 Utils::redirect('index.php');
