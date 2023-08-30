@@ -1,7 +1,6 @@
 <?php
 $title = 'Administration';
 require_once 'layout/header.php';
-require_once 'functions/deleteArticle.php';
 ?>
 
 <main class="main_sidebar">
@@ -18,7 +17,7 @@ require_once 'functions/deleteArticle.php';
         <div class="m-4 mt-0">
             <table class="table table-bordered">
 
-                <thead class="table-dark">
+                <thead class="table_head">
 
                     <tr>
                     <th scope="col">Titre de l'Article</th>
@@ -35,8 +34,17 @@ require_once 'functions/deleteArticle.php';
                         <tr>
                             <td><?php echo $el['title']?></td>
                             <td><?php echo $el['name']?></td>
-                            <td><a href="/project/editor.php?id=<?php echo $el['id'] ?>"><img alt="Éditer" src="uploads/editpen.svg"/></a></td>
-                            <td><input type="image" id="delete" name="delete" alt="Supprimer" src="uploads/trashbin.svg" onclick="deleteArticle($el['title'])" /></td>
+                            <td>
+                                <a href="editor.php?id=<?php echo $el['id'] ?>">
+                                    <img alt="Éditer" src="uploads/editpen.svg"/>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="delete.php?id=<?php echo $el['id'] ?>">
+                                    <img alt="Éditer" src="uploads/trashbin.svg"/>
+                                </a>
+                            </td>
+                            <!-- <td><input type="image" id="delete" name="delete" alt="Supprimer" src="uploads/trashbin.svg" onclick="deleteArticle($el['title'])" /></td> -->
                         </tr>
                     <?php } ?>
 

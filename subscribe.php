@@ -3,8 +3,10 @@ require_once 'classes/Utils.php';
 require_once 'classes/ErrorCode.php';
 require_once 'data/datas.php';
 
-var_dump($_POST['firstname']);
+// var_dump($_POST['firstname']);
 // var_dump($_POST['content']);
+
+
 
 $stmt = $pdo->prepare(
     "INSERT INTO users (firstname, lastname, pseudo, dob, email, password) VALUES

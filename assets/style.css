@@ -168,6 +168,12 @@ hr {
     width: 60%;
     margin: 5% 20%;
 }
+
+th {
+    background-color: #353434;
+    color: #f6f6f6;
+}
+
 /*FOOTER*/
 .footer {
     background-color: #4f4e4e;
