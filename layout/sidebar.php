@@ -2,9 +2,17 @@
 
 <div class="sidebar d-flex flex-column flex-shrink-0 p-3">
 
-    <a href="/project/admin.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-        <span class="fs-4"><?php echo $title ?></span>
-    </a>
+    <?php if ($title === 'Administration' || $title === 'Nouvel Article' || $title === 'Éditeur') { ?>
+        <a href="admin.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <span class="fs-4">
+                <?php echo 'Administration';
+    } else { ?>
+        <a href="encyclopedie.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <span class="fs-4">
+                <?php echo 'Encyclopédie' ;
+            } ?>
+            </span>
+        </a>
 
     <hr>
 
@@ -12,7 +20,7 @@
 
     <?php foreach ($categories as $categorie) { ?>
         <li class="nav-item">
-            <a href="" class="nav-link text-white" aria-current="page"><?php echo $categorie['cat_name'] ?></a>
+            <a href="categorie.php?name=<?php echo $categorie['cat_name']?>" class="nav-link text-white" aria-current="page"><?php echo $categorie['cat_name'] ?></a>
         </li>
     <?php } ?>
 

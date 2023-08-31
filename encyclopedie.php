@@ -20,7 +20,7 @@ require_once __DIR__ . '/data/datas.php';
 
                 <div class="card_text">
                     <h3><?php echo $article['title'] ?></h3>
-                    <h4><?php echo $article['cat_name'] ?></h4>
+                    <h5><?php echo $article['cat_name'] ?></h5>
                     <p><?php echo substr($article['content'], 0, 300) . "..." ?></p>
                     <a class="text-black text-decoration-none d-flex justify-content-end" href="article.php?id=<?php echo $article['id'] ?>">Lire la suite...</a>
                 </div>

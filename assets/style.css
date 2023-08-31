@@ -139,6 +139,15 @@ hr {
     opacity: .5 !important;
 }
 
+.home_card {
+    height: 523px;
+}
+
+.all_articles {
+    display: flex;
+    justify-content: center;
+}
+
 .newsletter_banner {
     display: flex;
     align-items: center;
@@ -163,6 +172,7 @@ hr {
         color: #f6f6f6;
         width: 80%;
     }
+
 
 /*ADMIN*/
 .edit_form {
@@ -192,7 +202,7 @@ th {
         color: #2dedb9;
     }
 
-    .card_text h4 {
+    .card_text h5 {
         color: #777777;
     }
 

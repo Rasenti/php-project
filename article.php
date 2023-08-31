@@ -15,7 +15,7 @@ $articlesIds = array_column($fullArticle, 'id');
 $articleKey = array_search($id, $articlesIds);
 if ($articleKey === false) {
     http_response_code(404);
-    echo "Produit non trouvé";
+    echo "L'Article n'existe pas :(";
     exit;
 }
 

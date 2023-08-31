@@ -1,6 +1,7 @@
 <?php
 $title = 'Accueil';
 require_once 'layout/header.php';
+require_once 'data/datas.php';
 
 if (isset($_POST['email'])) { 
     require_once 'classes/Email.php';
@@ -57,42 +58,28 @@ if (isset($_POST['email'])) {
         <hr>
 
         <div class = "row justify-content-center">
+            
+            <?php for ($i=0; $i<3; $i++) { 
+                $article = $fullArticle[$i] ?>
+                <article class ="home_card card col-3 m-4 p-0">
 
-            <article class = "card col-3 m-2">
-                <div>
-                    <a href="">
-                        <img src="" alt="">
-                    </a>
-                </div>
-                <div>
-                    <h3></h3>
-                    <p></p>
-                </div>
-            </article>
+                    <div class="card_img">
+                        <a href="article.php?id=<?php echo $article['id'] ?>">
+                            <img src="uploads/<?php echo $article['img_name'] ?>" alt="<?php echo $article['alt'] ?>">
+                        </a>
+                    </div>
 
-            <article class = "card col-3 m-2">
-                <div>
-                    <a href="">
-                        <img src="" alt="">
-                    </a>
-                </div>
-                <div>
-                    <h3></h3>
-                    <p></p>
-                </div>
-            </article>
+                    <div class="card_text">
+                        <h3><?php echo $article['title'] ?></h3>
+                        <h5><?php echo $article['cat_name'] ?></h5>
+                        <p><?php echo substr($article['content'], 0, 100) . "..." ?></p>
+                        <a class="text-black text-decoration-none d-flex justify-content-end" href="article.php?id=<?php echo $article['id'] ?>">Lire la suite...</a>
+                    </div>
 
-            <article class = "card col-3 m-2">
-                <div>
-                    <a href="">
-                        <img src="" alt="">
-                    </a>
-                </div>
-                <div>
-                    <h3></h3>
-                    <p></p>
-                </div>
-            </article>
+                </article>
+            <?php } ?>
+
+            <a class="all_articles text-decoration-none mb-4" href="encyclopedie.php"><button>Tous les Articles</button></a>
 
         </div>
 
