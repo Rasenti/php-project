@@ -121,7 +121,7 @@ button:hover {
     color: #f6f6f6;
 }
 
-/*MAIN*/
+/*HOME*/
 section {
     width: 80%;
     max-width: 1080px;
@@ -154,7 +154,7 @@ hr {
     height: 80vh;
 }
 
-/*ADMIN & WIKI*/
+/*SIDEBAR*/
 .sidebar {
     background-color: #353434;
     width: 280px;
@@ -164,18 +164,52 @@ hr {
         width: 80%;
     }
 
+/*ADMIN*/
 .edit_form {
     width: 60%;
     margin: 5% 20%;
 }
 
 th {
-    background-color: #353434;
-    color: #f6f6f6;
+    background-color: #353434 !important;
+    color: #f6f6f6 !important;
 }
 
+/*WIKI*/
 .card_img img {
     max-width: 100%;
+}
+
+.card {
+    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 0% !important;
+}
+
+.card_text {
+    padding: 16px 18px;
+}
+    .card_text h3 {
+        color: #2dedb9;
+    }
+
+    .card_text h4 {
+        color: #777777;
+    }
+
+    .card_text a {
+        color: #777777 !important;
+    }
+
+/*ARTICLE*/
+.article .image_container{
+    max-width: 30%;
+    float: right;
+    margin: 1% 1% 5% 5%;
+}
+
+.article h1 {
+    color: #2dedb9;
+    padding: 0 0 20px 0;
 }
 
 /*FOOTER*/
