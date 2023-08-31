@@ -146,6 +146,7 @@ hr {
 .all_articles {
     display: flex;
     justify-content: center;
+    font-size: 1.4em;
 }
 
 .newsletter_banner {
@@ -156,6 +157,10 @@ hr {
     height: 40rem;
     background-position: 0 80%;
     color: #f6f6f6;
+}
+
+.news_text {
+    padding-right: 5rem;
 }
 
 /*LOGIN*/
@@ -173,6 +178,9 @@ hr {
         width: 80%;
     }
 
+.nav_highlight {
+    color: #2dedb9 !important;
+}
 
 /*ADMIN*/
 .edit_form {
@@ -232,20 +240,21 @@ th {
 
 .footer_logo {
     display: flex;
-    max-width: 60%;
+    max-width: 35%;
     padding: 1rem;
 }
 
 .footer_column {
-    padding: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
 }
-    .footer_column h3 {
+    .footer_column a {
         font-size: x-large;
+        text-decoration: none;
+        color: #f6f6f6 !important;
     }
 
 .copy_tos {

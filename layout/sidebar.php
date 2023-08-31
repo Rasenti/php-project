@@ -20,7 +20,7 @@
 
     <?php foreach ($categories as $categorie) { ?>
         <li class="nav-item">
-            <a href="categorie.php?name=<?php echo $categorie['cat_name']?>" class="nav-link text-white" aria-current="page"><?php echo $categorie['cat_name'] ?></a>
+            <a href="categorie.php?name=<?php echo $categorie['cat_name']?>" class="nav-link <?php echo ($title === $categorie['cat_name']) ? 'nav_highlight' : 'text-white' ?>" aria-current="page"><?php echo $categorie['cat_name'] ?></a>
         </li>
     <?php } ?>
 

@@ -79,19 +79,19 @@ if (isset($_POST['email'])) {
                 </article>
             <?php } ?>
 
-            <a class="all_articles text-decoration-none mb-4" href="encyclopedie.php"><button>Tous les Articles</button></a>
+            <a class="all_articles text-decoration-none m-4" href="encyclopedie.php"><button>Tous les Articles</button></a>
 
         </div>
 
     </section>
 
-    <div class="newsletter_banner">
+    <div class="newsletter_banner mt-4">
 
         <section class="newsletter">
     
             <div class="row">
 
-                <div class="col-lg-6">
+                <div class="news_text col-lg-6">
 
                     <h3>Inscrivez-vous à notre Newsletter !</h3>
                     <p>Notre but est de vous offrir la meilleure expérience de jeu possible, et pour cela nous ajoutons régulièrement du contenu. Donc n’hésitez pas à vous inscrire à la newsletter, pour ne rien rater des nouveautés dans Jonction !</p>
@@ -106,8 +106,9 @@ if (isset($_POST['email'])) {
                         <input class="form-control mb-3" type="text" name="lastname" id="lastname" placeholder="Nom"/>
                         <input class="form-control mb-3" type="text" name="pseudo" id="pseudo" placeholder="Pseudo"/>
                         <input class="form-control mb-3" type="date" name="dob" id="dob" placeholder="Date de naissance"/>
-                        <input class="form-control mb-3" type="email" name="email" id="email" placeholder="E-mail*"/>
+                        <input class="form-control mb-3" type="email" name="email" id="email" placeholder="E-mail"/>
                         <input class="form-control mb-3" type="text" name="password" id="password" placeholder="Mot de passe"/>
+                        <input class="form-control mb-3" type="text" name="passwordConfirm" id="passwordConfirm" placeholder="Confirmez le mot de passe"/>
                         
                         <button class="mb-3" type="submit">S'inscrire</button>
     

@@ -19,7 +19,11 @@ foreach ($users as $el){
         $_SESSION['email'] = $email;
         $_SESSION['pseudo'] = $el['pseudo'];
         $_SESSION['admin'] = $el['admin'];
-        Utils::redirect('admin.php');
+
+        if (isset ($_SESSION['admin']) && $_SESSION['admin'] === 1) {
+          Utils::redirect('admin.php');
+        }
+        Utils::redirect('encyclopedie.php');
     } 
 };
 

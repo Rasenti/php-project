@@ -4,51 +4,25 @@
 
             <div class="footer_column col-3">
 
-                    <a href="http://localhost:81/project/" class="d-flex justify-content-center"><img class="footer_logo" src="/project/uploads/logo.svg" alt="Logo Jonction"></a>
+                    <a href="http://localhost:81/project/" class="d-flex justify-content-center">
+                        <img class="footer_logo" src="uploads/logo.svg" alt="Logo Jonction">
+                    </a>
 
             </div>
 
             <div class="footer_column col-3">
-
-                <div class="et_pb_text_inner">
-                    <h3>Encyclopédie</h3>
-                </div>
-
-                <div class="et_pb_text_inner">
-                    <p>Univers</p>
-                    <p>Elyndryul</p>
-                    <p>Archipel</p>
-                    <p>Inferno</p>
-                </div>
+                <a href="index.php">Accueil</a>
             </div>
 
             <div class="footer_column col-3">
-
-                <div class="et_pb_text_inner">
-                    <h3>Ressources</h3>
-                </div>
-
-                <div class="et_pb_text_inner">
-                    <p>Livre de Règles</p>
-                    <p>Générateur</p>
-                    <p>Maps</p>
-                    <p>Illustrations</p>
-                </div>
+                <a href="encyclopedie.php">Encyclopédie</a>
             </div>
 
-            <div class="footer_column col-3">
-
-                <div class="et_pb_text_inner">
-                    <h3>Contact</h3>
+            <?php if (isset ($_SESSION['admin']) && $_SESSION['admin'] === 1) { ?>
+                <div class="footer_column col-3">
+                    <a href="admin.php">Administration</a>
                 </div>
-
-                <div class="et_pb_text_inner">
-                    <p>contact@jonction.com</p>
-                    <p>+33 6 79 76 89 54</p>
-                    <p>9 rue Saint-Philippe</p>
-                    <p>69003, LYON</p>
-                </div>
-            </div>
+            <?php } ?>
 
         </div>
 
