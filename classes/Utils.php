@@ -40,14 +40,14 @@ class Utils
     return $table;
   }
 
-  public static function editArticle(object $pdo, string $tableName): void
-  {
-    $stmt = $pdo->query
-      ("UPDATE $tableName
-      SET column1 = value1, column2 = value2, ...
-      WHERE condition;");
-    
-    
-  }
+  // Exploration de la possibilité de passer par une méthode statique pour l'édition d'articles
+  //
+  // public static function editArticle(object $pdo, string $tableName): void
+  // {
+  //   $stmt = $pdo->query
+  //     ("UPDATE $tableName
+  //     SET column1 = value1, column2 = value2, ...
+  //     WHERE condition;");
+  // }
 }
 

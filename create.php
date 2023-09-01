@@ -2,7 +2,6 @@
 require_once 'classes/Utils.php';
 require_once 'data/datas.php';
 
-$image = $_POST['image'];
 $categorie = $_POST['categorie'];
 $title = $_POST['title'];
 var_dump($image);
@@ -17,11 +16,11 @@ if (isset($_FILES['image'])) {
 
 //Ensuite j'enregistre l'image en BDD pour pouvoir récupérer son id pour la suite du traitement
 $stmt = $pdo->prepare("INSERT INTO images (img_name) VALUES (:name)");
-$stmt->execute(['name' => $image]);
+$stmt->execute(['name' => $filename]);
 
 //Je récupère l'id de l'image enregistrée en BDD
 $stmtImage = $pdo->prepare("SELECT id FROM images WHERE img_name LIKE :image");
-$stmtImage->execute(['image' => $image]);
+$stmtImage->execute(['image' => $filename]);
 $imageId = $stmtImage->fetch(PDO::FETCH_ASSOC);
 var_dump($imageId['id']);
 
