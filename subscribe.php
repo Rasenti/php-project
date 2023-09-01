@@ -9,15 +9,15 @@ require_once 'data/datas.php';
 
 
 $stmt = $pdo->prepare(
-    "INSERT INTO users (firstname, lastname, pseudo, dob, email, password) VALUES
-    (:firstname, :lastname, :pseudo, :dob, :email, :password)"
+    "INSERT INTO users (firstname, lastname, pseudo, birthdate, email, password) VALUES
+    (:firstname, :lastname, :pseudo, :birthdate, :email, :password)"
 );
 
 $stmt->execute([
     'firstname' => $_POST['firstname'],
     'lastname' => $_POST['lastname'],
     'pseudo' => $_POST['pseudo'],
-    'dob' => $_POST['dob'],
+    'birthdate' => $_POST['birthdate'],
     'email' => $_POST['email'],
     'password' => ($_POST['password']), PASSWORD_DEFAULT
 ]);

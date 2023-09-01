@@ -1,4 +1,8 @@
 <?php
+require_once 'Exceptions/InvalidDateException.php';
+require_once 'Exceptions/InvalidEmailException.php';
+require_once 'Exceptions/InvalidPasswordConfirmationException.php';
+require_once 'Exceptions/InvalidLengthException.php';
 
 class FormValidator
 {
@@ -11,11 +15,18 @@ class FormValidator
         return $field;
     }
 
+    public static function validateStringLength(string $field, int $maxLength): void
+    {
+        if (strlen($field) > $maxLength) {
+            throw new InvalidLengthException($maxLength);
+        }
+    }
+
     public static function validateEmailFormat(string $field): void
     {
         $field = self::prepareField($field);
         if (filter_var($field, FILTER_VALIDATE_EMAIL) === false) {
-            throw new InvalidArgumentException("Le format de l'email est incorrect");
+            throw new InvalidEmailException();
         }
     }
 
@@ -23,7 +34,7 @@ class FormValidator
     {
         $field = self::prepareField($field);
         if (!preg_match("/^\d{4}-\d{2}-\d{2}$/", $field)) {
-            throw new InvalidArgumentException("Le format de la date est incorrect");
+            throw new InvalidDateException();
         }
         $date = explode("-", $field);
         $date[0] = intval($date[0]);
@@ -31,7 +42,7 @@ class FormValidator
         $date[2] = intval($date[2]);
 
         if (!checkdate($date[1], $date[2], $date[0])) {
-            throw new InvalidArgumentException("Le format de la date est incorrect");
+            throw new InvalidDateException();
         }
     }
 
@@ -40,7 +51,7 @@ class FormValidator
         $password = self::prepareField($password);
         $confirmPassword = self::prepareField($confirmPassword);
         if ($password !== $confirmPassword) {
-            throw new InvalidArgumentException("Les mots de passe ne correspondent pas");
+            throw new InvalidPasswordConfirmationException();
         }
     }
 }
