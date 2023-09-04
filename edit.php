@@ -4,7 +4,7 @@ require_once 'data/datas.php';
 
 //Je stock la valeur entière de l'id récupéré dans GET
 $pageId = intval($_GET['id']);
-//Je passe le nom de ma catégorie en minuscule avec la prmière lettre en majuscule
+//Je passe le nom de ma catégorie en minuscule avec la première lettre en majuscule
 $categorie = ucfirst(strtolower($_POST['categorie']));
 
 //J'enregistre l'image uploadée sur mon serveur
@@ -23,17 +23,20 @@ $stmt->execute([
     'id' => $pageId
 ]);
 
+//SI UNE IMAGE A ETE UPLOAD
+if (!empty($filename)) {
 //Je récupère l'id de l'image existante associée à l'article qu'on édite
-$stmt = $pdo->prepare("SELECT images_id FROM pages WHERE id=:id");
-$stmt->execute(['id' => $pageId]);
-$imageId = $stmt->fetch(PDO::FETCH_ASSOC);
+    $stmt = $pdo->prepare("SELECT images_id FROM pages WHERE id=:id");
+    $stmt->execute(['id' => $pageId]);
+    $imageId = $stmt->fetch(PDO::FETCH_ASSOC);
 
-//Je mets à jour l'image sur la table images
-$stmt = $pdo->prepare("UPDATE images SET img_name=:name WHERE id=:imageId");
-$stmt->execute([
-    'name' => $filename,
-    'imageId' => $imageId['images_id']
-]);
+// Je mets à jour l'image sur la table images
+    $stmt = $pdo->prepare("UPDATE images SET img_name=:name WHERE id=:imageId");
+    $stmt->execute([
+        'name' => $filename,
+        'imageId' => $imageId['images_id']
+    ]);
+}
 
 //Je récupère l'id de la catégorie qu'on édite
 $stmt = $pdo->prepare("SELECT id FROM categories WHERE cat_name=:name");

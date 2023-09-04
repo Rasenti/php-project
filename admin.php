@@ -30,7 +30,7 @@ require_once 'layout/header.php';
 
                 <tbody>
 
-                    <?php foreach ($articlesWithCategories as $el) { ?>
+                    <?php foreach ($fullArticle as $el) { ?>
                         <tr>
                             <td><?php echo $el['title']?></td>
                             <td><?php echo $el['cat_name']?></td>
