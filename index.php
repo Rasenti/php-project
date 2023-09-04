@@ -2,16 +2,6 @@
 $title = 'Accueil';
 require_once 'layout/header.php';
 require_once 'data/datas.php';
-
-if (isset($_POST['email'])) { 
-    require_once 'classes/Email.php';
-    
-    try {
-        $email = new Email($_POST['email']);
-    } catch (InvalidArgumentException $ex) {
-        $errorMessage = $ex->getMessage();
-    }
-  }
 ?>
 
 <main>
