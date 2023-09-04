@@ -40,7 +40,7 @@ $article = $fullArticle[$articleKey];
 
             <input class="form-control mb-3" type="text" name="title" id="title" placeholder="Titre de l'article" value="<?php echo $article['title'] ?>"/>
             <select class="form-control mb-3" type="text" name="categorie" id="categorie" placeholder="Catégorie">
-                <option value=""><?php echo $article['cat_name'] ?></option>
+                <option value="<?php echo $article['cat_name'] ?>"><?php echo $article['cat_name'] ?></option>
                 <?php foreach ($categories as $categorie) { 
                     if ($categorie['cat_name'] !== $article['cat_name']) { ?>
                         <option value="<?php echo $categorie['cat_name']?>"><?php echo $categorie['cat_name']?></option>
