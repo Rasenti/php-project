@@ -7,9 +7,20 @@ if (isset($_POST['email'])) {
     require_once 'classes/Email.php';
     
     try {
-        $email = new Email($_POST['email']);
-    } catch (InvalidArgumentException $ex) {
-        $errorMessage = $ex->getMessage();
+        $firstname = FormValidator::validateStringLength($_POST['firstname'], 45);
+        $lastname = FormValidator::validateStringLength($_POST['lastname'], 45);
+        $pseudo = FormValidator::validateStringLength($_POST['pseudo'], 45);
+        $email = FormValidator::validateEmailFormat($_POST['email']);
+        $birthdate = FormValidator::validateDateFormat($_POST['birthdate']);
+        $password = FormValidator::validatePasswordMatch($POST['password'], $_POST['passwordConfirm']);
+    } catch (InvalidLengthException $lenghtException) {
+        $nameError = $lenghtException->getMessage();
+    } catch (InvalidEmailException $emailException) {
+        $emailError = $emailException->getMessage();
+    } catch (InvalidDateException $dateException) {
+        $dateError = $dateException->getMessage();
+    } catch (InvalidPasswordConfirmationException $passwordException) {
+        $passwordError = $passwordException->getMessage();
     }
 }
 ?>
@@ -111,7 +122,10 @@ if (isset($_POST['email'])) {
                         <input class="form-control mb-3" type="text" name="passwordConfirm" id="passwordConfirm" placeholder="Confirmez le mot de passe"/>
                         
                         <button class="mb-3" type="submit">S'inscrire</button>
-    
+                        <?php if (!empty($nameError)) {
+                            echo $nameError;
+                        } ?>
+                        <p></p>
                     </form>
 
                 </div>

@@ -17,6 +17,7 @@ class FormValidator
 
     public static function validateStringLength(string $field, int $maxLength): void
     {
+        $field = self::prepareField($field);
         if (strlen($field) > $maxLength) {
             throw new InvalidLengthException($maxLength);
         }

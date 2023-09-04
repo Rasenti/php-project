@@ -1,23 +1,24 @@
 <?php
+//Classe de validation du format d'Email avant la création de la classe FormValidator
+//
+// class Email
+// {
+//   private string $emailAddress;
 
-class Email
-{
-  private string $emailAddress;
+//   /**
+//    * @param string $emailAddress
+//    * @throws InvalidArgumentException if email format is invalid
+//    */
+//   public function __construct(string $emailAddress)
+//   {
+//     if (filter_var($emailAddress, FILTER_VALIDATE_EMAIL) === false) {
+//       throw new InvalidArgumentException("Le format de l'email est incorrect");
+//     }
+//     $this->emailAddress = $emailAddress;
+//   }
 
-  /**
-   * @param string $emailAddress
-   * @throws InvalidArgumentException if email format is invalid
-   */
-  public function __construct(string $emailAddress)
-  {
-    if (filter_var($emailAddress, FILTER_VALIDATE_EMAIL) === false) {
-      throw new InvalidArgumentException("Le format de l'email est incorrect");
-    }
-    $this->emailAddress = $emailAddress;
-  }
-
-  public function getEmailAddress(): string
-  {
-    return $this->emailAddress;
-  }
-}
+//   public function getEmailAddress(): string
+//   {
+//     return $this->emailAddress;
+//   }
+// }
