@@ -7,7 +7,7 @@ $name = ($_GET['name']) ?? null;
 
 if ($name === null) {
     http_response_code(404);
-    echo "L'Article n'existe pas :(";
+    echo "La catégorie n'existe pas :(";
     exit;
 }
 ?>

@@ -3,26 +3,52 @@ $title = 'Accueil';
 require_once 'layout/header.php';
 require_once 'data/datas.php';
 
-if (isset($_POST['email'])) { 
-    require_once 'classes/Email.php';
-    
-    try {
-        $firstname = FormValidator::validateStringLength($_POST['firstname'], 45);
-        $lastname = FormValidator::validateStringLength($_POST['lastname'], 45);
-        $pseudo = FormValidator::validateStringLength($_POST['pseudo'], 45);
-        $email = FormValidator::validateEmailFormat($_POST['email']);
-        $birthdate = FormValidator::validateDateFormat($_POST['birthdate']);
-        $password = FormValidator::validatePasswordMatch($POST['password'], $_POST['passwordConfirm']);
-    } catch (InvalidLengthException $lenghtException) {
-        $nameError = $lenghtException->getMessage();
-    } catch (InvalidEmailException $emailException) {
-        $emailError = $emailException->getMessage();
-    } catch (InvalidDateException $dateException) {
-        $dateError = $dateException->getMessage();
-    } catch (InvalidPasswordConfirmationException $passwordException) {
-        $passwordError = $passwordException->getMessage();
-    }
-}
+//Tentative de gestion des erreurs du formulaire d'inscription à la newsletter
+//
+// $firstname = "";
+// $lastname = "";
+// $pseudo = "";
+// $email = "";
+// $birthdate = "";
+// $password = "";
+
+// if (!empty($_POST)) {
+//     require_once 'classes/FormValidator.php';
+//     require_once 'classes/StringValidator.php';
+//     require_once 'classes/EmailValidator.php';
+//     require_once 'classes/DateValidator.php';
+//     require_once 'classes/PasswordValidator.php';
+//     try {
+//         $firstname = new StringValidator($_POST['firstname'], 45);
+//         $lastname = new StringValidator($_POST['lastname'], 45);
+//         $pseudo = new StringValidator($_POST['pseudo'], 45);
+//     } catch (InvalidArgumentException $lengthException) {
+//         $lengthError = $lengthException->getMessage();
+//     }
+
+//     try {
+//         $email = new EmailValidator($_POST['email']);
+//     } catch (InvalidArgumentException $emailException) {
+//         $emailError = $emailException->getMessage();
+//     }
+
+//     try {
+//         $birthdate = new DateValidator($_POST['birthdate']);
+//     } catch (InvalidArgumentException $dateException) {
+//         $dateError = $dateException->getMessage();
+//     }
+
+//     try {
+//         $password = new PasswordValidator($_POST['password'], $_POST['passwordConfirm']);
+//     } catch (InvalidArgumentException $passwordException) {
+//         $passwordError = $passwordException->getMessage();
+//     }
+
+//     if (!empty($lengthError) || !empty($emailError) || !empty($dateError) || !empty($passwordError)) {
+//         echo "error";
+//     }
+// }
+
 ?>
 
 <main>
@@ -111,21 +137,31 @@ if (isset($_POST['email'])) {
     
                 <div class="col-lg-6">
 
-                    <form action="subscribe.php" method="POST">
+                    <form method="POST">
 
-                        <input class="form-control mb-3" type="text" name="firstname" id="firstname" placeholder="Prénom"/>
-                        <input class="form-control mb-3" type="text" name="lastname" id="lastname" placeholder="Nom"/>
-                        <input class="form-control mb-3" type="text" name="pseudo" id="pseudo" placeholder="Pseudo"/>
-                        <input class="form-control mb-3" type="date" name="birthdate" id="birthdate" placeholder="Date de naissance"/>
-                        <input class="form-control mb-3" type="email" name="email" id="email" placeholder="E-mail"/>
-                        <input class="form-control mb-3" type="text" name="password" id="password" placeholder="Mot de passe"/>
-                        <input class="form-control mb-3" type="text" name="passwordConfirm" id="passwordConfirm" placeholder="Confirmez le mot de passe"/>
+                        <input class="form-control mb-3" type="text" name="firstname" id="firstname" placeholder="Prénom" required/>
+                        <input class="form-control mb-3" type="text" name="lastname" id="lastname" placeholder="Nom" required/>
+                        <input class="form-control mb-3" type="text" name="pseudo" id="pseudo" placeholder="Pseudo" required/>
+                        <input class="form-control mb-3" type="date" name="birthdate" id="birthdate" placeholder="Date de naissance" required/>
+                        <input class="form-control mb-3" type="email" name="email" id="email" placeholder="E-mail" required/>
+                        <input class="form-control mb-3" type="text" name="password" id="password" placeholder="Mot de passe" required/>
+                        <input class="form-control mb-3" type="text" name="passwordConfirm" id="passwordConfirm" placeholder="Confirmez le mot de passe" required/>
                         
                         <button class="mb-3" type="submit">S'inscrire</button>
-                        <?php if (!empty($nameError)) {
-                            echo $nameError;
-                        } ?>
-                        <p></p>
+
+                        <?php if (!empty($lengthError)) { ?>
+                            <p><?php echo $lengthError ?></p>
+                        <?php } ?>
+                        <?php if (!empty($emailError)) { ?>
+                            <p><?php echo $emailError ?></p>
+                        <?php } ?>
+                        <?php if (!empty($dateError)) { ?>
+                            <p><?php echo $dateError ?></p>
+                        <?php } ?>
+                        <?php if (!empty($passwordError)) { ?>
+                            <p><?php echo $passwordError ?></p>
+                        <?php } ?>
+                        
                     </form>
 
                 </div>
