@@ -1,7 +1,7 @@
 <?php
-require_once 'classes/Utils.php';
-require_once 'classes/ErrorCode.php';
-require_once 'data/datas.php';
+require_once __DIR__ . '/../classes/Utils.php';
+require_once __DIR__ . '/../classes/ErrorCode.php';
+require_once __DIR__ . '/../data/datas.php';
 
 // var_dump($_POST['firstname']);
 // var_dump($_POST['content']);
@@ -22,4 +22,4 @@ $stmt->execute([
     'password' => ($_POST['password']), PASSWORD_DEFAULT
 ]);
 
-Utils::redirect('index.php');
+Utils::redirect('/index.php');

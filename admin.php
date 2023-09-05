@@ -9,7 +9,7 @@ require_once 'layout/header.php';
     <div class="d-flex flex-column w-100">
 
         <div class="m-4">
-            <a href="creator.php">
+            <a href="/crud/creator.php">
                 <button>Créer</button>
             </a>
         </div>

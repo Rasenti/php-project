@@ -44,4 +44,4 @@ if ($id === null) {
     $stmt = $pdo->prepare("DELETE FROM images WHERE id=:images_id");
     $stmt->execute(['images_id' => $imageId['images_id']]);
 // };
-Utils::redirect('admin.php');
+Utils::redirect('/admin.php');

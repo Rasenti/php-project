@@ -1,7 +1,7 @@
 <?php
 $title = 'Accueil';
-require_once 'layout/header.php';
-require_once 'data/datas.php';
+require_once __DIR__ . '/layout/header.php';
+require_once __DIR__ . '/data/datas.php';
 ?>
 
 <main>

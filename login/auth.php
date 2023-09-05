@@ -1,7 +1,7 @@
 <?php
-require_once 'classes/Utils.php';
-require_once 'classes/ErrorCode.php';
-require_once 'data/datas.php';
+require_once __DIR__ . '/../classes/Utils.php';
+require_once __DIR__ . '/../classes/ErrorCode.php';
+require_once __DIR__ . '/../data/datas.php';
 
 if (empty($_POST['email']) || empty($_POST['password'])) {
   Utils::redirect('login.php?error=' . ErrorCode::LOGIN_FIELDS_REQUIRED);
@@ -21,9 +21,9 @@ foreach ($users as $el){
         $_SESSION['admin'] = $el['admin'];
 
         if (isset ($_SESSION['admin']) && $_SESSION['admin'] === 1) {
-          Utils::redirect('admin.php');
+          Utils::redirect('/admin.php');
         }
-        Utils::redirect('encyclopedie.php');
+        Utils::redirect('/encyclopedie.php');
     } 
 };
 

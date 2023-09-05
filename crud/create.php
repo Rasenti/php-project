@@ -1,6 +1,6 @@
 <?php
-require_once 'classes/Utils.php';
-require_once 'data/datas.php';
+require_once __DIR__ . '/../classes/Utils.php';
+require_once __DIR__ . '/../data/datas.php';
 
 $image = $_POST['image'];
 $categorie = $_POST['categorie'];
@@ -58,4 +58,4 @@ $stmt->execute([
     'pages_id' => $pageId['id']
 ]);
 
-Utils::redirect('admin.php');
+Utils::redirect('/admin.php');

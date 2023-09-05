@@ -4,8 +4,8 @@
 
             <div class="footer_column col-3">
 
-                    <a href="http://localhost:81/project/" class="d-flex justify-content-center">
-                        <img class="footer_logo" src="uploads/logo.svg" alt="Logo Jonction">
+                    <a href="/index.php" class="d-flex justify-content-center">
+                        <img class="footer_logo" src="/uploads/logo.svg" alt="Logo Jonction">
                     </a>
 
             </div>
