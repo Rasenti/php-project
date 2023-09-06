@@ -58,6 +58,13 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 J'ai ensuite fait une page php appelée data dans laquelle j'ai fais une `query` avec des `INNER JOIN` vers les bonnes tables pour obtenir dans un tableau l'ensemble des informations dont j'ai besoin dans le reste de mes pages. Je n'ai plus qu' faire des `require_once` de cette page pour avoir accès à mes données de n'importe où.
 
+En effet, les articles affichés récupèrent des données dans plusieurs tables de la BDD :
+- la table `pages` qui contient les articles en eux-mêmes
+- la table `images` qui contient les illustrations
+- la table `categories` (reliée à `pages` via une table étrangère) qui contient les noms des catégories d'articles.
+
+Plus tard j'ai factorisé la connexion en créant une méthode statique de la classe Utils qui s'occupe de faire la connexion PDO, et une autre permettant de faire un `SELECT * FROM` de n'importe quelle table. Et j'en ai profité pour inclure un fichier `db.ini` avec les informations de connexion pour externaliser la configuration de PDO.
+
 ## La page Admin
 Avec les données disponibles j'ai commencé à faire la page Admin, avec un tableau permettant de voir les articles et leur catégorie, de les éditer, et de les supprimer. Et j'ai fait la page d'édition avec le formulaire prérempli en fonction de l'id de l'article.
 
@@ -70,4 +77,16 @@ J'ai aussi fait le menu de la barre latérale avec un `foreach` des noms de cat�
 ## CRUD
 On a déjà le Read avec `PDO` et la query `SELECT` qui me ramène les infos des articles, donc je me suis ensuite attaqué à l'édition d'article.
 
-Pour commencer j'ai volontairement écarté la gestion de fichier, en me concentrant dans un premier temps sur les requêtes avec PDO. J'ai utilisé des `prepare/execute` pour les requêtes car elles sont lancées d'après les inputs de l'utilisateur.
+Pour commencer j'ai volontairement écarté la gestion de fichier, en me concentrant dans un premier temps sur les requêtes avec PDO. J'ai utilisé des `prepare/execute` pour les requêtes car elles sont lancées d'après les inputs de l'utilisateur, et utilise les id récupérés dans GET pour cibler les bons articles en base de donnée. 
+
+J'ai commencé par l'édition mais avec une version simplifiée qui ne modifie que les données de la table `pages`.
+
+Ensuite la création, en prenant cette fois le temps de peupler toutes les tables de la BDD. Et comme j'écris sur plusieurs tables, et notamment une table étrangère, j'ai agencé les requêtes dans le bon ordre afin de récupérer les id après création pour les utiliser dans les requêtes suivantes. Je n'ai pas eu de blocage réel, juste quelques petites erreurs dans des noms de variables ou de table, mais tout a rapidement marché.
+
+Après quoi j'ai fait la suppression, avec la même logique. Au début j'ai voulu le faire différemment, en utilisant le `onclick()` dans le HTML, avec du JS, et en créant une fonction `deleteArticle` mais ça m'emmenait trop loin (notamment il fallait que je me replonge un peu dans JS) donc j'ai abandonné pour rester sur la même logique avec une redirection sur une page de script. Après cela pareil, pas de blocage réel, et j'ai quand même pris le temps de faire un backup de ma BDD au cas où il y avait des effets de bord.
+
+Et enfin, j'ai finalisé l'édition en intégrant les modifications aux autres tables.
+
+*Note : J'ai découvert `LastInsertId` après avoir fini toute l'architecture de mon CRUD, donc je ne suis pas revenu dessus, mais je pourrais sûrement simplifier ça du coup.*
+
+## File Upload
