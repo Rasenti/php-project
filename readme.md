@@ -55,3 +55,19 @@ Et j'ai récupéré les utilisateurs sur ma table `users` avec une query SQL et 
 $stmt = $pdo->query("SELECT * FROM users")
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ```
+
+J'ai ensuite fait une page php appelée data dans laquelle j'ai fais une `query` avec des `INNER JOIN` vers les bonnes tables pour obtenir dans un tableau l'ensemble des informations dont j'ai besoin dans le reste de mes pages. Je n'ai plus qu' faire des `require_once` de cette page pour avoir accès à mes données de n'importe où.
+
+## La page Admin
+Avec les données disponibles j'ai commencé à faire la page Admin, avec un tableau permettant de voir les articles et leur catégorie, de les éditer, et de les supprimer. Et j'ai fait la page d'édition avec le formulaire prérempli en fonction de l'id de l'article.
+
+Pour cela j'ai fait un `foreach` avec les articles, afin de tous les afficher dynamiquement en fonction des rsultats de ma requête SQL. Puis sur le bouton d'édition (et c'est le même principe pour le delete) je récupère l'id de l'article et le met en paramètre GET dans l'URL de redirection. La page d'édition affiche comme ça les champs préremplis de l'article en fonction de l'id récupéré dans la superglobale `$_GET`, et effectue l'opération d'`UPDATE` sur le bon article.
+
+Dans l'idée j'aurais bien aimé mettre un filtre sur le tableau d'Admin, pour pouvoir trirer par ordre alphabétique soit les titres d'articles, soit les catégories, mais je n'ai pas encore eu le temps.
+
+J'ai aussi fait le menu de la barre latérale avec un `foreach` des noms de catégorie cette fois.
+
+## CRUD
+On a déjà le Read avec `PDO` et la query `SELECT` qui me ramène les infos des articles, donc je me suis ensuite attaqué à l'édition d'article.
+
+Pour commencer j'ai volontairement écarté la gestion de fichier, en me concentrant dans un premier temps sur les requêtes avec PDO. J'ai utilisé des `prepare/execute` pour les requêtes car elles sont lancées d'après les inputs de l'utilisateur.
