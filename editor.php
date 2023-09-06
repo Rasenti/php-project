@@ -38,8 +38,8 @@ $article = $fullArticle[$articleKey];
 
         <form class="edit_form text-center" action="/crud/edit.php?id=<?php echo $urlId ?>" method="POST" enctype="multipart/form-data">
 
-            <input class="form-control mb-3" type="text" name="title" id="title" placeholder="Titre de l'article" value="<?php echo $article['title'] ?>"/>
-            <select class="form-control mb-3" type="text" name="categorie" id="categorie" placeholder="Catégorie">
+            <input class="form-control mb-3" type="text" name="title" id="title" placeholder="Titre de l'article" value="<?php echo $article['title'] ?>" required/>
+            <select class="form-control mb-3" type="text" name="categorie" id="categorie" placeholder="Catégorie" required>
                 <option value="<?php echo $article['cat_name'] ?>"><?php echo $article['cat_name'] ?></option>
                 <?php foreach ($categories as $categorie) { 
                     if ($categorie['cat_name'] !== $article['cat_name']) { ?>
@@ -47,8 +47,8 @@ $article = $fullArticle[$articleKey];
                     <?php }
                 } ?>
             </select>
-            <input class="form-control mb-3" type="file" name="image" id="image" placeholder="Image de l'article"/>
-            <textarea class="form-control mb-3" name="content" id="content" rows="12" placeholder="Contenu de l'article..."/><?php echo $article['content'] ?></textarea>
+            <input class="form-control mb-3" type="file" name="image" id="image" placeholder="Image de l'article" required/>
+            <textarea class="form-control mb-3" name="content" id="content" rows="12" placeholder="Contenu de l'article..." required/><?php echo $article['content'] ?></textarea>
 
             <?php if (isset($_GET['error'])) { ?>
                 <div class="error mb-3">

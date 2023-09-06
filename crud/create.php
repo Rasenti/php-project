@@ -23,7 +23,6 @@ $stmt->execute(['name' => $image]);
 $stmtImage = $pdo->prepare("SELECT id FROM images WHERE img_name LIKE :image");
 $stmtImage->execute(['image' => $image]);
 $imageId = $stmtImage->fetch(PDO::FETCH_ASSOC);
-var_dump($imageId['id']);
 
 //J'insère les données de la table "pages"
 $stmt = $pdo->prepare(
