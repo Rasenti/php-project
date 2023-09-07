@@ -90,3 +90,29 @@ Et enfin, j'ai finalisé l'édition en intégrant les modifications aux autres t
 *Note : J'ai découvert `LastInsertId` après avoir fini toute l'architecture de mon CRUD, donc je ne suis pas revenu dessus, mais je pourrais sûrement simplifier ça du coup.*
 
 ## File Upload
+Pour les illustrations d'articles j'ai un champ d'upload de fichier, et j'ai géré l'enregistrement de l'image au début des pages de script de création et d'édition. J'ai utilisé la même méthode que dans le cours, avec la récupération du `tmp_name` dans la variable superglobale `$_FILES` et la définition d'un chemin pour le déplacement de l'image vers `/uploads/`. 
+
+Tout a rapidement fonctionné, mais il arrive parfois que la page mouline pendant un certain temps (voire indéfiniment) lorsque j'ajoute une image. Je n'ai pas réussi à identifier si c'est dû à Docker, WAMP ou autre chose, mais ça reste à la marge donc je ne m'en suis pas plus occupé que ça.
+
+## L'Encyclopédie
+Un peu de front à nouveau ici, avec la création des cartes d'articles dans l'encyclopédie, en isolant les id dans les paramètres GET pour afficher les bons articles au clic.
+
+J'ai aussi géré le "filtre" des articles par catégorie avec la barre latérale, en créant une page `categorie` qui va afficher les articles de la catégorie sélectionnée en cherchant dans les articles si les id de catégorie sont correspondant avec l'id de la catégorie sélectionnée.
+
+Et j'en ai profité pour faire un affichage des 3 premiers articles sur la page d'accueil.
+
+## Gestion des erreurs
+C'est ici que je suis tombé sur mon plus gros écueil. 
+
+J'ai voulu faire une gestion des erreurs dans les champs du formulaire d'inscription au cas par cas, et pour cela j'ai fait une classe contenant des méthodes statiques permettant de contrôler chaque type de champ (email, password, date, longueur des chaines de caractères, etc...).
+
+Jusque là pas de problème, mais mon formulaire d'inscription se trouve sur ma page d'accueil, et l'ajout effectif de l'utilisateur après remplissage du formulaire se fait sur une page `subscribe.php`, et j'ai eu du mal a déterminer où faire mon `try/catch`. 
+
+Je voyais deux options possibles :
+1. Afficher les erreurs directement au niveau du formulaire (avec une div qui apparait en cas d'erreur en dessous du fomulaire), mais ça voulait dire faire le `try/catch` sur l'index, et j'avais du mal à faire en sorte que le bout de code ne se déclenche qu'à l'envoie du formulaire, sans rechargement de la page (qui empêche l'affichage de l'erreur), et sans envoie du script d'inscription dans tous les cas.
+
+2. Afficher les erreurs sur une nouvelle page (mais j'ai du mal à me résoudre à cette solution car je ne trouve pas ça très user friendly), auquel cas je peux mettre la vérification au début du script d'inscription avec un exit pour ne pas lancer l'ajout en BDD en cas d'échec, et affichage d'une erreur. Je pense que je serai capable de faire ça, et c'est sûrement ce que je vais faire, mais j'aimerai bien essayer à nouveau de trouver une solution pour faire la méthode 1.
+
+Et pour le reste des gestions d'erreur disséminées dans le code, j'en ai fait certaines directement, et j'en ai reporté d'autres à plus tard, mais je me rend compte que c'était une erreur car je vais devoir repasser sur tout mon code, et je suis sûr que je vais en oublier...
+
+## Refactorisation
