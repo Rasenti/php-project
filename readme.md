@@ -19,6 +19,9 @@ Ensuite le mieux est de copier l'instance de base de données que j'ai mise à d
 
 J'ai aussi mis à disposition les images des articles dans le dossier `/uploads` pour avoir des belles cartes.
 
+## A savoir
+J'ai fait plusieurs branches GIT tout au long du projet, mais je n'en parle pas particulièrement par la suite, parce que j'ai fais des merges progressifs, donc l'évolution générale du projet se voit dans la branche admin. J'ai essayé de faire une branche par feature majeure, et je ne pense pas que trop de "vieux code" se soit perdu dans l'histoire, bien que j'ai delete les branches au fur et à mesure au début (avant de me rendre compte que ça pouvait être bien de les laisser pour l'historique).
+
 # La Chronologie
 
 ## Au commencement, il y avait le Front
@@ -113,6 +116,56 @@ Je voyais deux options possibles :
 
 2. Afficher les erreurs sur une nouvelle page (mais j'ai du mal à me résoudre à cette solution car je ne trouve pas ça très user friendly), auquel cas je peux mettre la vérification au début du script d'inscription avec un exit pour ne pas lancer l'ajout en BDD en cas d'échec, et affichage d'une erreur. Je pense que je serai capable de faire ça, et c'est sûrement ce que je vais faire, mais j'aimerai bien essayer à nouveau de trouver une solution pour faire la méthode 1.
 
+### Après moult réflexion
+
+J'ai fini par trouver une solution en mettant le `try/catch` dans la page de script, et en créant un tableau d'erreurs que j'ajoute dans ma session pour qu'il soit récupéré au niveau de l'index :
+
+```php
+if (!empty($_POST)) { 
+    
+    try {
+        $firstname = FormValidator::validateStringLength($_POST['firstname'], 45);
+        $lastname = FormValidator::validateStringLength($_POST['lastname'], 45);
+        $pseudo = FormValidator::validateStringLength($_POST['pseudo'], 45);
+    } catch (InvalidLengthException $lengthException) {
+        $lengthError = $lengthException->getMessage();
+        $errors['length'] = $lengthError;
+    }
+
+    try {
+        $email = FormValidator::validateEmailFormat($_POST['email']);
+    } catch (InvalidEmailException $emailException) {
+        $emailError = $emailException->getMessage();
+        $errors['email'] = $emailError;
+    }
+
+    try {    
+        $birthdate = FormValidator::validateDateFormat($_POST['birthdate']);
+    } catch (InvalidDateException $dateException) {
+        $dateError = $dateException->getMessage();
+        $errors['date'] = $dateError;
+    }
+
+    try {
+        $password = FormValidator::validatePasswordMatch($_POST['password'], $_POST['passwordConfirm']);
+    } catch (InvalidPasswordConfirmationException $passwordException) {
+        $passwordError = $passwordException->getMessage();
+        $errors['password'] = $passwordError;
+    }
+
+}
+
+if (!empty($nameError) || !empty($emailError) || !empty($dateError) || !empty($passwordError)) 
+{
+    session_start();
+    $_SESSION['errors'] = $errors;
+    Utils::redirect('index.php#newsletter_banner');
+}
+```
+
+Après cela j'ai juste eu a créer une div sous mon formulaire qui affiche les erreurs si `$_SESSION['errors']` n'est pas vide.
+
 Et pour le reste des gestions d'erreur disséminées dans le code, j'en ai fait certaines directement, et j'en ai reporté d'autres à plus tard, mais je me rend compte que c'était une erreur car je vais devoir repasser sur tout mon code, et je suis sûr que je vais en oublier...
 
 ## Refactorisation
+J'ai commencé par mettre de la PHP doc là où je n'en avais pas encore mis (à savoir partout...).
