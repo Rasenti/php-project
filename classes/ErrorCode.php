@@ -6,6 +6,12 @@ class ErrorCode
   public const INVALID_CREDENTIALS = 2;
   public const LOGIN_FIELDS_REQUIRED = 3;
 
+  /**
+   * getErrorMessage function
+   *
+   * @param integer $errorCode - Error code 
+   * @return string - Return an error message for the given error code
+   */
   public static function getErrorMessage(int $errorCode): string
   {
     switch ($errorCode) {

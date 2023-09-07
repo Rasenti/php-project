@@ -4,8 +4,17 @@ require_once 'Exceptions/InvalidEmailException.php';
 require_once 'Exceptions/InvalidPasswordConfirmationException.php';
 require_once 'Exceptions/InvalidLengthException.php';
 
-class FormValidator
+/**
+ * FormValidator class
+ */
+abstract class FormValidator
 {
+    /**
+     * Prepare inputs for validation
+     *
+     * @param string $field - String input to prepare for validation
+     * @return string - string prepared for further testing
+     */
     private static function prepareField(string $field): string
     {
         $field = trim($field);
@@ -15,6 +24,14 @@ class FormValidator
         return $field;
     }
 
+    /**
+     * Check max length for a string
+     *
+     * @param string $field - User input, field to check
+     * @param integer $maxLength - max authorized length for the field
+     * @return void
+     * @throws InvalidLengthException - on fail
+     */
     public static function validateStringLength(string $field, int $maxLength): void
     {
         $field = self::prepareField($field);
@@ -23,6 +40,13 @@ class FormValidator
         }
     }
 
+    /**
+     * Check if email format is valid
+     *
+     * @param string $field - User input, field to check
+     * @return void
+     * @throws InvalidEmailException - on fail
+     */
     public static function validateEmailFormat(string $field): void
     {
         $field = self::prepareField($field);
@@ -31,6 +55,13 @@ class FormValidator
         }
     }
 
+    /**
+     * Check if date format is valid
+     *
+     * @param string $field - User input, field to check
+     * @return void
+     * @throws InvalidDateException - on fail
+     */
     public static function validateDateFormat(string $field): void
     {
         $field = self::prepareField($field);
@@ -47,6 +78,14 @@ class FormValidator
         }
     }
 
+    /**
+     * Check password match with the confirmation
+     *
+     * @param string $password - User input, field to check for match
+     * @param string $confirmPassword - second input for matching check
+     * @return void
+     * @throws InvalidPasswordConfirmationException - on fail
+     */
     public static function validatePasswordMatch(string $password, string $confirmPassword): void
     {
         $password = self::prepareField($password);
