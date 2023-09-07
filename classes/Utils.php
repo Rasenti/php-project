@@ -40,6 +40,8 @@ class Utils
     return $table;
   }
 
+  // Exploration de la possibilité de passer par une méthode statique pour l'édition d'articles
+  //
   // public static function editArticle(object $pdo, string $tableName): void
   // {
   //   $stmt = $pdo->query
