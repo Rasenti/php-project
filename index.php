@@ -2,27 +2,6 @@
 $title = 'Accueil';
 require_once 'layout/header.php';
 require_once 'data/datas.php';
-
-if (isset($_POST['email'])) { 
-    require_once 'classes/Email.php';
-    
-    try {
-        $firstname = FormValidator::validateStringLength($_POST['firstname'], 45);
-        $lastname = FormValidator::validateStringLength($_POST['lastname'], 45);
-        $pseudo = FormValidator::validateStringLength($_POST['pseudo'], 45);
-        $email = FormValidator::validateEmailFormat($_POST['email']);
-        $birthdate = FormValidator::validateDateFormat($_POST['birthdate']);
-        $password = FormValidator::validatePasswordMatch($POST['password'], $_POST['passwordConfirm']);
-    } catch (InvalidLengthException $lenghtException) {
-        $nameError = $lenghtException->getMessage();
-    } catch (InvalidEmailException $emailException) {
-        $emailError = $emailException->getMessage();
-    } catch (InvalidDateException $dateException) {
-        $dateError = $dateException->getMessage();
-    } catch (InvalidPasswordConfirmationException $passwordException) {
-        $passwordError = $passwordException->getMessage();
-    }
-}
 ?>
 
 <main>
@@ -118,14 +97,21 @@ if (isset($_POST['email'])) {
                         <input class="form-control mb-3" type="text" name="pseudo" id="pseudo" placeholder="Pseudo"/>
                         <input class="form-control mb-3" type="date" name="birthdate" id="birthdate" placeholder="Date de naissance"/>
                         <input class="form-control mb-3" type="email" name="email" id="email" placeholder="E-mail"/>
-                        <input class="form-control mb-3" type="text" name="password" id="password" placeholder="Mot de passe"/>
-                        <input class="form-control mb-3" type="text" name="passwordConfirm" id="passwordConfirm" placeholder="Confirmez le mot de passe"/>
-                        
+                        <input class="form-control mb-3" type="password" name="password" id="password" placeholder="Mot de passe"/>
+                        <input class="form-control mb-3" type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Confirmez le mot de passe"/>
+
                         <button class="mb-3" type="submit">S'inscrire</button>
-                        <?php if (!empty($nameError)) {
-                            echo $nameError;
+
+                        <?php if (!empty($_SESSION['errors']))
+                        { 
+                            $errors = $_SESSION['errors'];
+                            $errorString = implode("<br> ", $errors); 
+                            ?>
+                                <p class="error"><?php echo $errorString ?></p>
+                            <?php 
+                            $_SESSION['errors'] = "";
                         } ?>
-                        <p></p>
+
                     </form>
 
                 </div>
