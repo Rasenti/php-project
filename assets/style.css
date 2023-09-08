@@ -163,6 +163,10 @@ hr {
     padding-right: 5rem;
 }
 
+.checkbox:checked{
+    background-color: #2dedb9 !important;
+}
+
 /*LOGIN*/
 .login {
     height: 80vh;

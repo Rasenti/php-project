@@ -90,7 +90,7 @@ require_once __DIR__ . '/data/datas.php';
     
                 <div class="col-lg-6">
 
-                    <form action="subscribe.php" method="POST">
+                    <form action="/crud/subscribe.php" method="POST">
 
                         <input class="form-control mb-3" type="text" name="firstname" id="firstname" placeholder="Prénom"/>
                         <input class="form-control mb-3" type="text" name="lastname" id="lastname" placeholder="Nom"/>
@@ -100,7 +100,13 @@ require_once __DIR__ . '/data/datas.php';
                         <input class="form-control mb-3" type="password" name="password" id="password" placeholder="Mot de passe"/>
                         <input class="form-control mb-3" type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Confirmez le mot de passe"/>
 
-                        <button class="mb-3" type="submit">S'inscrire</button>
+                        <div class="d-flex flex-column align-items-start">
+                            <div class="d-flex align-items-baseline">
+                                <input class="checkbox mb-3" type="checkbox" name="newsletter" id="newsletter" value="newsletter"/>
+                                <label style="margin-left: 1rem" for="newsletter">S'inscrire à la newsletter</label>
+                            </div>
+                            <button class="mb-3" type="submit">S'inscrire</button>
+                        </div>
 
                         <?php if (!empty($_SESSION['errors']))
                         { 

@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../classes/Utils.php';
-require_once __DIR__ . '/../classes/ErrorCode.php';
+require_once __DIR__ . '/../classes/FormValidator.php';
 require_once __DIR__ . '/../data/datas.php';
 
 // var_dump($_POST['firstname']);
@@ -55,6 +55,29 @@ if (!empty($nameError) || !empty($emailError) || !empty($dateError) || !empty($p
 }
 
 // Si les champs sont validés on lance la query pour peupler la table des users
+//
+// Si la checkbox pour la newsletter est cochée on inscrit l'utilisateur en BDD
+if (isset($_POST['newsletter'])) {
+
+    $stmt = $pdo->prepare(
+        "INSERT INTO users (firstname, lastname, pseudo, birthdate, email, password, subscribed) VALUES
+        (:firstname, :lastname, :pseudo, :birthdate, :email, :password, :subscribed)"
+    );
+    
+    $stmt->execute([
+        'firstname' => $_POST['firstname'],
+        'lastname' => $_POST['lastname'],
+        'pseudo' => $_POST['pseudo'],
+        'birthdate' => $_POST['birthdate'],
+        'email' => $_POST['email'],
+        'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
+        'subscribed' => 1
+    ]);
+
+    Utils::redirect('/index.php');
+}
+
+// Sinon on laisse la valeur par défaut (qui est non inscrit)
 $stmt = $pdo->prepare(
     "INSERT INTO users (firstname, lastname, pseudo, birthdate, email, password) VALUES
     (:firstname, :lastname, :pseudo, :birthdate, :email, :password)"
