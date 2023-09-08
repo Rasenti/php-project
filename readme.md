@@ -28,6 +28,8 @@ J'ai aussi mis à disposition les images des articles dans le dossier `/uploads`
 ## A savoir
 J'ai fait plusieurs branches GIT tout au long du projet, mais je n'en parle pas particulièrement par la suite, parce que j'ai fais des merges progressifs, donc l'évolution générale du projet se voit dans la branche admin. J'ai essayé de faire une branche par feature majeure, et je ne pense pas que trop de "vieux code" se soit perdu dans l'histoire, bien que j'ai delete les branches au fur et à mesure au début (avant de me rendre compte que ça pouvait être bien de les laisser pour l'historique).
 
+J'ai aussi une page de test (`/test.php`) sur laquelle je faisais mes tests quand c'était possible.
+
 # La Chronologie
 
 ## Au commencement, il y avait le Front
@@ -74,7 +76,7 @@ En effet, les articles affichés récupèrent des données dans plusieurs tables
 
 Plus tard j'ai factorisé la connexion en créant une méthode statique de la classe Utils qui s'occupe de faire la connexion PDO, et une autre permettant de faire un `SELECT * FROM` de n'importe quelle table. Et j'en ai profité pour inclure un fichier `db.ini` avec les informations de connexion pour externaliser la configuration de PDO.
 
-## La page Admin
+## La page Admin vint ensuite
 Avec les données disponibles j'ai commencé à faire la page Admin, avec un tableau permettant de voir les articles et leur catégorie, de les éditer, et de les supprimer. Et j'ai fait la page d'édition avec le formulaire prérempli en fonction de l'id de l'article.
 
 Pour cela j'ai fait un `foreach` avec les articles, afin de tous les afficher dynamiquement en fonction des rsultats de ma requête SQL. Puis sur le bouton d'édition (et c'est le même principe pour le delete) je récupère l'id de l'article et le met en paramètre GET dans l'URL de redirection. La page d'édition affiche comme ça les champs préremplis de l'article en fonction de l'id récupéré dans la superglobale `$_GET`, et effectue l'opération d'`UPDATE` sur le bon article.
@@ -83,7 +85,7 @@ Dans l'idée j'aurais bien aimé mettre un filtre sur le tableau d'Admin, pour p
 
 J'ai aussi fait le menu de la barre latérale avec un `foreach` des noms de catégorie cette fois.
 
-## CRUD
+## Et le CRUD s'imposa
 On a déjà le Read avec `PDO` et la query `SELECT` qui me ramène les infos des articles, donc je me suis ensuite attaqué à l'édition d'article.
 
 Pour commencer j'ai volontairement écarté la gestion de fichier, en me concentrant dans un premier temps sur les requêtes avec PDO. J'ai utilisé des `prepare/execute` pour les requêtes car elles sont lancées d'après les inputs de l'utilisateur, et utilise les id récupérés dans GET pour cibler les bons articles en base de donnée. 
@@ -98,19 +100,19 @@ Et enfin, j'ai finalisé l'édition en intégrant les modifications aux autres t
 
 *Note : J'ai découvert `LastInsertId` après avoir fini toute l'architecture de mon CRUD, donc je ne suis pas revenu dessus, mais je pourrais sûrement simplifier ça du coup.*
 
-## File Upload
+## Après quoi ce fût au tour du File Upload
 Pour les illustrations d'articles j'ai un champ d'upload de fichier, et j'ai géré l'enregistrement de l'image au début des pages de script de création et d'édition. J'ai utilisé la même méthode que dans le cours, avec la récupération du `tmp_name` dans la variable superglobale `$_FILES` et la définition d'un chemin pour le déplacement de l'image vers `/uploads/`. 
 
 Tout a rapidement fonctionné, mais il arrive parfois que la page mouline pendant un certain temps (voire indéfiniment) lorsque j'ajoute une image. Je n'ai pas réussi à identifier si c'est dû à Docker, WAMP ou autre chose, mais ça reste à la marge donc je ne m'en suis pas plus occupé que ça.
 
-## L'Encyclopédie
+## Et de l'Encyclopédie
 Un peu de front à nouveau ici, avec la création des cartes d'articles dans l'encyclopédie, en isolant les id dans les paramètres GET pour afficher les bons articles au clic.
 
 J'ai aussi géré le "filtre" des articles par catégorie avec la barre latérale, en créant une page `categorie` qui va afficher les articles de la catégorie sélectionnée en cherchant dans les articles si les id de catégorie sont correspondant avec l'id de la catégorie sélectionnée.
 
 Et j'en ai profité pour faire un affichage des 3 premiers articles sur la page d'accueil.
 
-## Gestion des erreurs
+## La Gestion des erreurs vînt mettre son grain de sel
 C'est ici que je suis tombé sur mon plus gros écueil. 
 
 J'ai voulu faire une gestion des erreurs dans les champs du formulaire d'inscription au cas par cas, et pour cela j'ai fait une classe contenant des méthodes statiques permettant de contrôler chaque type de champ (email, password, date, longueur des chaines de caractères, etc...).
@@ -173,7 +175,7 @@ Après cela j'ai juste eu a créer une div sous mon formulaire qui affiche les e
 
 Et pour le reste des gestions d'erreur disséminées dans le code, j'en ai fait certaines directement, et j'en ai reporté d'autres à plus tard, mais je me rend compte que c'était une erreur car je vais devoir repasser sur tout mon code, et je suis sûr que je vais en oublier...
 
-## Refactorisation
+## Et à la fin, il ne resta que la Refactorisation
 J'ai commencé par mettre de la PHP doc là où je n'en avais pas encore mis (à savoir partout...).
 
 Ensuite j'ai checké un peu tout ce que j'avais fait jusque là, et je me suis rendu compte que j'avais oublié de gérer la newsletter dans l'inscription, donc j'ai fait un ajout à ce niveau là, avec une checkbox et une gestion `if/else` dans le script.
