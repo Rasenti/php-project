@@ -1,6 +1,6 @@
 <?php
 
-class Utils
+abstract class Utils
 {
   public static function redirect(string $location): void
   {
@@ -8,6 +8,11 @@ class Utils
     exit;
   }
 
+  /**
+   * Create an instance of PDO using a db.ini file
+   *
+   * @return PDO
+   */
   public static function newPDO(): PDO
   {
       $dbSettings = parse_ini_file(__DIR__ . '/../data/db.ini');
@@ -33,6 +38,13 @@ class Utils
       return $pdo;
   }
 
+  /**
+   * Send a SQL query to select all from a given table
+   *
+   * @param object $pdo
+   * @param string $tableName
+   * @return array
+   */
   public static function selectFrom(object $pdo, string $tableName): array
   {
     $stmt = $pdo->query("SELECT * FROM $tableName");
