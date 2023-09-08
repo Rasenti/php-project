@@ -6,8 +6,8 @@ require_once __DIR__ . '/../data/datas.php';
 $pageId = intval($_GET['id']);
 //Je passe le nom de ma catégorie en minuscule avec la première lettre en majuscule
 $categorie = ucfirst(strtolower($_POST['categorie']));
-var_dump($_POST);
-var_dump($categorie);
+// var_dump($_POST);
+// var_dump($categorie);
 //J'enregistre l'image uploadée sur mon serveur
 if (isset($_FILES['image'])) {
     $file = $_FILES['image'];
@@ -51,4 +51,4 @@ $stmt->execute([
     'pageId' => $pageId
 ]);
 
-Utils::redirect('/admin.php');
+Utils::redirect('/../admin.php');

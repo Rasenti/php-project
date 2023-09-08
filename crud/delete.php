@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/classes/Utils.php';
-require_once __DIR__ . '/data/datas.php';
+require_once __DIR__ . '/../classes/Utils.php';
+require_once __DIR__ . '/../data/datas.php';
 
 $id = intval($_GET['id']) ?? null;
 

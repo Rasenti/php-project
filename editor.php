@@ -47,7 +47,7 @@ $article = $fullArticle[$articleKey];
                     <?php }
                 } ?>
             </select>
-            <input class="form-control mb-3" type="file" name="image" id="image" placeholder="Image de l'article" required/>
+            <input class="form-control mb-3" type="file" name="image" id="image" placeholder="Image de l'article"/>
             <textarea class="form-control mb-3" name="content" id="content" rows="12" placeholder="Contenu de l'article..." required/><?php echo $article['content'] ?></textarea>
 
             <?php if (isset($_GET['error'])) { ?>

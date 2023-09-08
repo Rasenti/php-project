@@ -1,6 +1,6 @@
 <?php
 $title = 'Administration';
-require_once 'layout/header.php';
+require_once __DIR__ . '/layout/header.php';
 ?>
 
 <main class="main_sidebar">
@@ -40,7 +40,7 @@ require_once 'layout/header.php';
                                 </a>
                             </td>
                             <td>
-                                <a href="delete.php?id=<?php echo $el['id'] ?>">
+                                <a href="/crud/delete.php?id=<?php echo $el['id'] ?>">
                                     <img alt="Éditer" src="uploads/trashbin.svg"/>
                                 </a>
                             </td>
