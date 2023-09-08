@@ -44,7 +44,7 @@ var_dump($categorieId['id']);
 $stmtPage = $pdo->prepare("SELECT id FROM pages WHERE title LIKE :title");
 $stmtPage->execute(['title' => $title]);
 $pageId = $stmtPage->fetch(PDO::FETCH_ASSOC);
-var_dump($pageId['id']);
+// var_dump($pageId['id']);
 
 $stmt = $pdo->prepare(
     "INSERT INTO categories_has_pages (categories_id, pages_id) VALUES

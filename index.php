@@ -83,8 +83,8 @@ require_once __DIR__ . '/data/datas.php';
 
                 <div class="news_text col-lg-6">
 
-                    <h3>Inscrivez-vous à notre Newsletter !</h3>
-                    <p>Notre but est de vous offrir la meilleure expérience de jeu possible, et pour cela nous ajoutons régulièrement du contenu. Donc n’hésitez pas à vous inscrire à la newsletter, pour ne rien rater des nouveautés dans Jonction !</p>
+                    <h3>Inscrivez-vous !</h3>
+                    <p>Notre but est de vous offrir la meilleure expérience de jeu possible, et pour cela nous ajoutons régulièrement du contenu. Donc n’hésitez pas à vous inscrire pour ne rien rater des nouveautés dans Jonction !</p>
 
                 </div>
     

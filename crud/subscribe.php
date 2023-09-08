@@ -6,6 +6,7 @@ require_once __DIR__ . '/../data/datas.php';
 // var_dump($_POST['firstname']);
 // var_dump($_POST['content']);
 
+// Je commence par valider les champs du formulaire, et fais une redirection avec messages d'erreur le cas échéant
 $nameError ="";
 $emailError ="";
 $dateError ="";
@@ -45,6 +46,7 @@ if (!empty($_POST)) {
 
 }
 
+// Si au moins un message d'erreur est peuplé on redirige sur le formulaire avec le message d'erreur stocké dans la session
 if (!empty($nameError) || !empty($emailError) || !empty($dateError) || !empty($passwordError)) 
 {
     session_start();
@@ -52,6 +54,7 @@ if (!empty($nameError) || !empty($emailError) || !empty($dateError) || !empty($p
     Utils::redirect('index.php#newsletter_banner');
 }
 
+// Si les champs sont validés on lance la query pour peupler la table des users
 $stmt = $pdo->prepare(
     "INSERT INTO users (firstname, lastname, pseudo, birthdate, email, password) VALUES
     (:firstname, :lastname, :pseudo, :birthdate, :email, :password)"
