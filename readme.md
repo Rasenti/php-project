@@ -17,6 +17,12 @@ DB_PASSWORD="password"
 ```
 Ensuite le mieux est de copier l'instance de base de données que j'ai mise à disposition dans le dossier `/data`, afin de ne pas avoir d'erreurs dans les requêtes SQL (toutes faites avec des fonctions query, parce qu'on sait bien que les utilisateurs n'oseraient pas casser la base de donnée enfin).
 
+Aussi pour tester la partie admin il faut se connecter avec le seul user admin :
+```
+email : rasen@gmail.com
+password : ras
+```
+
 J'ai aussi mis à disposition les images des articles dans le dossier `/uploads` pour avoir des belles cartes.
 
 ## A savoir
@@ -169,3 +175,9 @@ Et pour le reste des gestions d'erreur disséminées dans le code, j'en ai fait 
 
 ## Refactorisation
 J'ai commencé par mettre de la PHP doc là où je n'en avais pas encore mis (à savoir partout...).
+
+Ensuite j'ai checké un peu tout ce que j'avais fait jusque là, et je me suis rendu compte que j'avais oublié de gérer la newsletter dans l'inscription, donc j'ai fait un ajout à ce niveau là, avec une checkbox et une gestion `if/else` dans le script.
+
+Après j'étais globalement satisfait du reste :)
+
+En améliorations, je pense que j'aurais pu factoriser quelques éléments au niveau des query pdo, peut être faire une fonction pour les statements, avec la query en paramètre, mais je ne sais pas si la plus value serait intéressante. J'aurais aussi peut-être pu faire une fonction ou une méthode statique pour les query de récupération d'id, et faire une classe spécifique pour les méthodes concernant PDO plutôt que de les faire dans Utils.
